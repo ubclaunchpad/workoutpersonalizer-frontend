@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/screens/playlist_gallery.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      routes: {'/gallery': (context) => const PlaylistGallery()},
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -106,7 +108,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        // onPressed: _incrementCounter,
+        onPressed: () {
+          Navigator.pushNamed(context, '/gallery');
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
