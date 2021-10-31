@@ -10,9 +10,9 @@ class NavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.max,
         children: [
-          NavigationItem(title: 'Home'),
-          NavigationItem(title: 'About'),
-          NavigationItem(title: 'Contact'),
+          const NavigationItem(title: 'Dashboard'),
+          const NavigationItem(title: 'My Workouts'),
+          const NavigationItem(title: "Creator's Corner"),
         ],
       ),
     );
