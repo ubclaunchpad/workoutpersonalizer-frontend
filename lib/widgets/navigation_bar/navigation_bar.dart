@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/routes/routes.dart';
-import 'package:workoutpersonalizer_frontend/widgets/navigation_item.dart';
+import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/navigation_item.dart';
 
 class NavigationBar extends StatefulWidget {
   @override
