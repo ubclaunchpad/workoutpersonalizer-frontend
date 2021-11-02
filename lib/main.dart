@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
       builder: (_, child) => AppView(
         child: child!,
       ),
+      // Where the program will start when first opened
       initialRoute: routeDashboard,
+      // Used to switch between pages without having a context
       navigatorKey: navKey,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
