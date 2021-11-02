@@ -13,7 +13,7 @@ class _NavigationBarState extends State<NavigationBar> {
     return Container(
       height: 50.0,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: const [
           NavigationItem(
