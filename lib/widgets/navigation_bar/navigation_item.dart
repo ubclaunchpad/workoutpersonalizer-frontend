@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/routes/routes.dart';
-import 'package:workoutpersonalizer_frontend/widgets/interactive_nav_item.dart';
+import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/interactive_nav_item.dart';
 
 class NavigationItem extends StatelessWidget {
   final String title;
