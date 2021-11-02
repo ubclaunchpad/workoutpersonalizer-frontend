@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Navigation Bar Web',
+      title: 'Workout Personalizer',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         child: child!,
       ),
       // Where the program will start when first opened
-      initialRoute: routeDashboard,
+      initialRoute: routeCreatorsCorner,
       // Used to switch between pages without having a context
       navigatorKey: navKey,
       onGenerateRoute: RouteGenerator.generateRoute,
