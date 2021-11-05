@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'workoutPlayer/workoutplayer.dart';
+
+
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+      home: WorkoutPlayer(),
+    ),);
 }
 
 class MyApp extends StatelessWidget {
