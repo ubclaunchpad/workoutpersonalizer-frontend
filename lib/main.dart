@@ -1,3 +1,4 @@
+// Absolute pathing is used throughout this project
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/app_view.dart';
 import 'package:workoutpersonalizer_frontend/routes/routes.dart';
