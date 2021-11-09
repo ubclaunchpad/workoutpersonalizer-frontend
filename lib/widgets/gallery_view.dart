@@ -1,67 +1,80 @@
 import 'package:flutter/material.dart';
 
 class Gallery extends StatefulWidget {
-  const Gallery({Key? key}) : super(key: key);
+  final List<String> exerciseList;
+
+  const Gallery({Key? key, required this.exerciseList}) : super(key: key);
 
   @override
   GalleryState createState() => GalleryState();
 }
 
 class GalleryState extends State<Gallery> {
-  final List<String> _exerciseList = [
-    'exercise1',
-    'exercise2',
-    'exercise3',
-    'exercise4',
-    'exercise5',
-    'exercise6',
-    'exercise7'
-  ];
+  void buttonAction(value) {
+    print("this is value " + value);
+  }
 
-  // var num = _exerciseList.length;
-
-  Widget buildGrid(BuildContext context) {
-    // return GridView.builder(
-    //     gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-    //         maxCrossAxisExtent: 200,
-    //         childAspectRatio: 3 / 2,
-    //         crossAxisSpacing: 20,
-    //         mainAxisSpacing: 20),
-    //     itemCount: _exerciseList.length,
-    //     itemBuilder: (BuildContext ctx, index) {
-    //       return Container(
-    //         alignment: Alignment.center,
-    //         child: Text(_exerciseList[index]),
-    //         decoration: BoxDecoration(
-    //             color: Colors.amber, borderRadius: BorderRadius.circular(15)),
-    //       );
-    //     });
-
+  Widget buildGrid(BuildContext context, exerciseList) {
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 450,
-            childAspectRatio: 3 / 2,
+            maxCrossAxisExtent: 300,
+            childAspectRatio: 13 / 16,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
-        itemCount: _exerciseList.length,
+        itemCount: widget.exerciseList.length,
         itemBuilder: (context, index) {
           return Card(
-            // child: Text(_exerciseList[index])
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ListTile(
-                    leading: Icon(Icons.add),
-                    title: Text(_exerciseList[index]),
+                    title: Text(widget.exerciseList[index]),
                     subtitle: Text('muscle group',
                         style:
                             TextStyle(color: Colors.black.withOpacity(0.6)))),
+                // Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
+                Stack(alignment: Alignment.bottomLeft, children: <Widget>[
+                  Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: PopupMenuButton(
+                        onSelected: (value) {
+                          buttonAction(value);
+                        },
+                        itemBuilder: (context) => [
+                          const PopupMenuItem(
+                            child: Text("First"),
+                            value: "first",
+                          ),
+                          const PopupMenuItem(
+                            child: Text("Second"),
+                            value: "second",
+                          )
+                        ],
+                        // onPressed: () => print("hello"),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(5.0), //or 15.0
+                          child: Container(
+                            height: 30.0,
+                            width: 30.0,
+                            color: Colors.black,
+                            child: const Icon(Icons.add,
+                                color: Colors.white, size: 25.0),
+                          ),
+                        ),
+                      ))
+                ]),
                 Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    'description',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
-                ),
+                    padding: const EdgeInsets.all(8),
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'other tags',
+                          style:
+                              TextStyle(color: Colors.black.withOpacity(0.6)),
+                        ))),
                 // ButtonBar(
                 //   alignment: MainAxisAlignment.start,
                 //   children: [
@@ -115,6 +128,6 @@ class GalleryState extends State<Gallery> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(body: buildGrid(context));
+    return Scaffold(body: buildGrid(context, widget.exerciseList));
   }
 }
