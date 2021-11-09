@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/widgets/creators_corner/exercise_library.dart';
+import 'package:workoutpersonalizer_frontend/widgets/creators_corner/workout_viewer.dart';
 
 class CreatorsCornerPage extends StatelessWidget {
   @override
@@ -12,11 +13,9 @@ class CreatorsCornerPage extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
+              const Expanded(
                 flex: 4,
-                child: Container(
-                  color: Colors.green,
-                ),
+                child: WorkoutViewer(),
               ),
               Expanded(
                 flex: 6,
