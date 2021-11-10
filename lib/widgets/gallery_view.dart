@@ -14,6 +14,15 @@ class Gallery extends StatefulWidget {
 }
 
 class GalleryState extends State<Gallery> {
+  List<String> exercisesToDisplay = [
+    'Exercise 1',
+    'Exercise 2',
+    'Exercise 3',
+    'Exercise 4',
+    'Exercise 5',
+    'Exercise 6',
+    'Exercise 7'
+  ];
   void addToWorkouts(value) {
     print("this is value " + value);
   }
@@ -22,14 +31,26 @@ class GalleryState extends State<Gallery> {
     print("add to library");
   }
 
+  List<String> getDisplayItems(text, exerciseList) {
+    List<String> ret = [];
+    exerciseList.forEach((String exercise) {
+      if (exercise.toLowerCase().contains(text)) {
+        ret.add(exercise);
+      }
+    });
+    return ret;
+  }
+
   Widget buildGrid(BuildContext context, exerciseList, playlistGallery) {
+    // exercisesToDisplay = widget.exerciseList;
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
             childAspectRatio: 13 / 16,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
-        itemCount: widget.exerciseList.length,
+        // itemCount: widget.exerciseList.length,
+        itemCount: exercisesToDisplay.length,
         itemBuilder: (context, index) {
           return Card(
             semanticContainer: true,
@@ -38,7 +59,8 @@ class GalleryState extends State<Gallery> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ListTile(
-                  title: Text(widget.exerciseList[index]),
+                  // title: Text(widget.exerciseList[index]),
+                  title: Text(exercisesToDisplay[index]),
                   subtitle: Text('Muscle group',
                       style: TextStyle(color: Colors.black.withOpacity(0.6))),
                   trailing: widget.playlistGallery
@@ -130,8 +152,47 @@ class GalleryState extends State<Gallery> {
     // );
   }
 
+  // from https://stackoverflow.com/questions/60813379/how-to-put-searchbar-into-appbar-flutter
+  Widget buildSearchBar(BuildContext context, exerciseList) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        decoration: InputDecoration(hintText: 'Search Exercise'),
+        onChanged: (text) {
+          text = text.toLowerCase();
+          setState(() {
+            // exercisesToDisplay = exerciseList.where((note) {
+            //   // not quite sure what this does yet
+            //   var noteTitle = note.city.toLowerCase();
+            //   return noteTitle.contains(text);
+            // }).toList();
+
+            // exercisesToDisplay = exerciseList.where((exercise) {
+            //   var exerciseTitle = exercise.toLowerCase();
+            //   if (exerciseTitle.contains(text)) {
+            //     return exercise;
+            //   } else {
+            //     return;
+            //   }
+            // }).toList();
+            exercisesToDisplay = getDisplayItems(text, exerciseList);
+          });
+        },
+      ),
+    );
+  }
+
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: buildGrid(context, widget.exerciseList, widget.playlistGallery));
+    // return Column(children: [
+    //   // buildSearchBar(context, widget.exerciseList),
+    //   // Text("hello"),
+    //   buildGrid(context, widget.exerciseList, widget.playlistGallery)
+    // ]);
+    return Column(children: [
+      buildSearchBar(context, widget.exerciseList),
+      Expanded(
+          child:
+              buildGrid(context, widget.exerciseList, widget.playlistGallery))
+    ]);
   }
 }
