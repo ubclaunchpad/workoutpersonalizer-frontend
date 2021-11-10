@@ -42,14 +42,12 @@ class GalleryState extends State<Gallery> {
   }
 
   Widget buildGrid(BuildContext context, exerciseList, playlistGallery) {
-    // exercisesToDisplay = widget.exerciseList;
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
             childAspectRatio: 13 / 16,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
-        // itemCount: widget.exerciseList.length,
         itemCount: exercisesToDisplay.length,
         itemBuilder: (context, index) {
           return Card(
@@ -59,7 +57,6 @@ class GalleryState extends State<Gallery> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ListTile(
-                  // title: Text(widget.exerciseList[index]),
                   title: Text(exercisesToDisplay[index]),
                   subtitle: Text('Muscle group',
                       style: TextStyle(color: Colors.black.withOpacity(0.6))),
@@ -70,7 +67,6 @@ class GalleryState extends State<Gallery> {
                         )
                       : null,
                 ),
-                // Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
                 Stack(alignment: Alignment.bottomLeft, children: <Widget>[
                   Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
                   Padding(
@@ -89,7 +85,6 @@ class GalleryState extends State<Gallery> {
                             value: "second",
                           )
                         ],
-                        // onPressed: () => print("hello"),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(5.0), //or 15.0
                           child: Container(
@@ -115,41 +110,6 @@ class GalleryState extends State<Gallery> {
             ),
           );
         });
-
-    //   itemCount: _exerciseList.length,
-    //   itemBuilder: (context, index) {
-    //     return Card(
-    //       // child: Text(_exerciseList[index])
-    //       child: Column(
-    //         children: <Widget>[
-    //           ListTile(
-    //               leading: Icon(Icons.add),
-    //               title: Text(_exerciseList[index]),
-    //               subtitle: Text('some muscle group',
-    //                   style: TextStyle(color: Colors.black.withOpacity(0.6)))),
-    //           Padding(
-    //             padding: const EdgeInsets.all(16),
-    //             child: Text(
-    //               'some description blah blah blah',
-    //               style: TextStyle(color: Colors.black.withOpacity(0.6)),
-    //             ),
-    //           ),
-    //           ButtonBar(
-    //             alignment: MainAxisAlignment.start,
-    //             children: [
-    //               TextButton(
-    //                   style: TextButton.styleFrom(
-    //                     primary: Colors.red,
-    //                   ),
-    //                   onPressed: () {},
-    //                   child: const Text('See more'))
-    //             ],
-    //           )
-    //         ],
-    //       ),
-    //     );
-    //   },
-    // );
   }
 
   // from https://stackoverflow.com/questions/60813379/how-to-put-searchbar-into-appbar-flutter
@@ -161,20 +121,6 @@ class GalleryState extends State<Gallery> {
         onChanged: (text) {
           text = text.toLowerCase();
           setState(() {
-            // exercisesToDisplay = exerciseList.where((note) {
-            //   // not quite sure what this does yet
-            //   var noteTitle = note.city.toLowerCase();
-            //   return noteTitle.contains(text);
-            // }).toList();
-
-            // exercisesToDisplay = exerciseList.where((exercise) {
-            //   var exerciseTitle = exercise.toLowerCase();
-            //   if (exerciseTitle.contains(text)) {
-            //     return exercise;
-            //   } else {
-            //     return;
-            //   }
-            // }).toList();
             exercisesToDisplay = getDisplayItems(text, exerciseList);
           });
         },
@@ -183,11 +129,6 @@ class GalleryState extends State<Gallery> {
   }
 
   Widget build(BuildContext context) {
-    // return Column(children: [
-    //   // buildSearchBar(context, widget.exerciseList),
-    //   // Text("hello"),
-    //   buildGrid(context, widget.exerciseList, widget.playlistGallery)
-    // ]);
     return Column(children: [
       buildSearchBar(context, widget.exerciseList),
       Expanded(
