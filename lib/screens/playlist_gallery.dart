@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/gallery_view.dart';
+import '../widgets/sidebar.dart';
 
 class PlaylistGallery extends StatelessWidget {
   static const List<String> _exerciseList = [
@@ -17,6 +18,7 @@ class PlaylistGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Sidebar(),
         appBar: AppBar(
           title: const Text('Playlist gallery'),
         ),
