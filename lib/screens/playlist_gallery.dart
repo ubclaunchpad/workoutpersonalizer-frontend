@@ -3,13 +3,13 @@ import '../widgets/gallery_view.dart';
 
 class PlaylistGallery extends StatelessWidget {
   static const List<String> _exerciseList = [
-    'exercise1',
-    'exercise2',
-    'exercise3',
-    'exercise4',
-    'exercise5',
-    'exercise6',
-    'exercise7'
+    'Exercise 1',
+    'Exercise 2',
+    'Exercise 3',
+    'Exercise 4',
+    'Exercise 5',
+    'Exercise 6',
+    'Exercise 7'
   ];
 
   const PlaylistGallery({Key? key}) : super(key: key);
@@ -20,15 +20,7 @@ class PlaylistGallery extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Playlist gallery'),
         ),
-        body: Gallery(exerciseList: _exerciseList)
-        // body: Center(
-        //   child: ElevatedButton(
-        //     onPressed: () {
-        //       Navigator.pop(context);
-        //     },
-        //     child: const Text('Go back!'),
-        //   ),
-        // ),
-        );
+        body:
+            const Gallery(exerciseList: _exerciseList, playlistGallery: true));
   }
 }

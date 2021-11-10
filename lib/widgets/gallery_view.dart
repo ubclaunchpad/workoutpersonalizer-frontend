@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/screens/playlist_gallery.dart';
 
 class Gallery extends StatefulWidget {
   final List<String> exerciseList;
+  final bool playlistGallery;
 
-  const Gallery({Key? key, required this.exerciseList}) : super(key: key);
+  const Gallery(
+      {Key? key, required this.exerciseList, required this.playlistGallery})
+      : super(key: key);
 
   @override
   GalleryState createState() => GalleryState();
 }
 
 class GalleryState extends State<Gallery> {
-  void buttonAction(value) {
+  void addToWorkouts(value) {
     print("this is value " + value);
   }
 
-  Widget buildGrid(BuildContext context, exerciseList) {
+  void addToLibrary() {
+    print("add to library");
+  }
+
+  Widget buildGrid(BuildContext context, exerciseList, playlistGallery) {
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
@@ -30,10 +38,16 @@ class GalleryState extends State<Gallery> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ListTile(
-                    title: Text(widget.exerciseList[index]),
-                    subtitle: Text('muscle group',
-                        style:
-                            TextStyle(color: Colors.black.withOpacity(0.6)))),
+                  title: Text(widget.exerciseList[index]),
+                  subtitle: Text('Muscle group',
+                      style: TextStyle(color: Colors.black.withOpacity(0.6))),
+                  trailing: widget.playlistGallery
+                      ? IconButton(
+                          onPressed: () => {},
+                          icon: const Icon(Icons.favorite),
+                        )
+                      : null,
+                ),
                 // Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
                 Stack(alignment: Alignment.bottomLeft, children: <Widget>[
                   Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
@@ -41,7 +55,7 @@ class GalleryState extends State<Gallery> {
                       padding: const EdgeInsets.all(8.0),
                       child: PopupMenuButton(
                         onSelected: (value) {
-                          buttonAction(value);
+                          addToWorkouts(value);
                         },
                         itemBuilder: (context) => [
                           const PopupMenuItem(
@@ -71,21 +85,10 @@ class GalleryState extends State<Gallery> {
                     child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'other tags',
+                          'Tags',
                           style:
                               TextStyle(color: Colors.black.withOpacity(0.6)),
                         ))),
-                // ButtonBar(
-                //   alignment: MainAxisAlignment.start,
-                //   children: [
-                //     TextButton(
-                //         style: TextButton.styleFrom(
-                //           primary: Colors.red,
-                //         ),
-                //         onPressed: () {},
-                //         child: const Text('See more'))
-                //   ],
-                // )
               ],
             ),
           );
@@ -128,6 +131,7 @@ class GalleryState extends State<Gallery> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(body: buildGrid(context, widget.exerciseList));
+    return Scaffold(
+        body: buildGrid(context, widget.exerciseList, widget.playlistGallery));
   }
 }
