@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'workoutPlayer/workoutplayer.dart';
+import 'workoutPlayer/workout_player.dart';
 
 
 void main() {

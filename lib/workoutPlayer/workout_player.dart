@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:workoutpersonalizer_frontend/models/Exercise.dart';
 
-import 'chewie_list_item.dart';
+import 'video_player.dart';
 
-/// This is the stateful widget that the main application instantiates.
 class WorkoutPlayer extends StatefulWidget {
   const WorkoutPlayer({Key? key}) : super(key: key);
 
@@ -14,17 +12,18 @@ class WorkoutPlayer extends StatefulWidget {
   State<WorkoutPlayer> createState() => _WorkoutPlayer();
 }
 
-/// This is the private State class that goes with MyStatefulWidget.
 class _WorkoutPlayer extends State<WorkoutPlayer> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   List<Exercise> exercises = [];
+  var curExerciseIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    // TODO: fetch exercises here
-    String dummyThumbnailUrl = "https://www.inposture.com/wp-content/uploads/2020/05/Sit-ups.jpg";
-    String dummyVideoUrl = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+    // TODO: fetch workout and exercises here
+    String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
+    String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
     exercises = [
       Exercise(1, "Exercise 1", "Exercise1 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
       Exercise(2, "Exercise 2", "Exercise2 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
@@ -35,6 +34,12 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
       Exercise(7, "Exercise 7", "Exercise7 Description", dummyThumbnailUrl, dummyVideoUrl, 191),
       Exercise(8, "Exercise 8", "Exercise8 Description", dummyThumbnailUrl, dummyVideoUrl, 1000),
     ];
+  }
+
+  void setCurExercise(int index) {
+    setState(() {
+      curExerciseIndex = index;
+    });
   }
 
   @override
@@ -48,7 +53,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
             flex: 3,
             child: Column(
               children: [
-                videoPlayerFunction(context),
+                videoPlayerFunction(context, exercises[curExerciseIndex].videoSrc),
                 videoDescription(),
               ]
             ),
@@ -61,7 +66,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
                 children: [
                   workoutTitle(),
                   Expanded(
-                    child: workoutList(context, exercises),
+                    child: exerciseList(context, exercises, setCurExercise),
                   )
                 ],
               )
@@ -91,10 +96,7 @@ theAppBar() {
               child: InkWell(
                 splashColor: Colors.red, 
                 onTap: () {}, 
-                child: SizedBox(
-                  width: 56, 
-                  height: 56
-                )
+                child: SizedBox(width: 56, height: 56)
               )
             )
           )
@@ -102,7 +104,7 @@ theAppBar() {
       );
 }
 
-Widget videoPlayerFunction(BuildContext context)  {
+Widget videoPlayerFunction(BuildContext context, String videoSrcUrl)  {
   return Stack(
     children: <Widget> [
       Container(
@@ -112,9 +114,7 @@ Widget videoPlayerFunction(BuildContext context)  {
         height: MediaQuery.of(context).size.height * 0.75,
         child: AspectRatio(
           aspectRatio: 16/9, // TODO: should be the aspect ratio of the video
-          child: ChewieListItem(
-            videoPlayerController: VideoPlayerController.network('http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4')
-          )
+          child: VideoPlayer(videoSrcUrl, UniqueKey())
         ),
       ),
       countDownTimer(context)
@@ -135,7 +135,7 @@ Widget countDownTimer(BuildContext context) {
       fillColor: Colors.white,
       strokeWidth: 3.0,
       strokeCap: StrokeCap.round,
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         fontSize: 20.0, 
         color: Colors.white, 
         fontWeight: FontWeight.bold
@@ -149,11 +149,11 @@ Widget countDownTimer(BuildContext context) {
 }
 
 Widget videoDescription() { 
-  return Text('This is the workout description', textAlign: TextAlign.left,);
+  return const Text('This is the workout description', textAlign: TextAlign.left,);
 }
 
 Widget workoutTitle() { 
-  return Text(
+  return const Text(
     'Workout Title', 
     textAlign: TextAlign.left, 
     style: TextStyle(
@@ -164,12 +164,20 @@ Widget workoutTitle() {
   );
 }
 
-Widget workoutList(BuildContext context, List<Exercise> exercises) { 
+Widget exerciseList(BuildContext context, List<Exercise> exercises, Function setCurExercise) { 
   return exercises.isNotEmpty
     ? ListView.builder(
         itemCount: exercises.length,
         itemBuilder: (BuildContext context, int index) {
-          return workout(context, exercises[index]);
+          var itemKey = GlobalKey();
+          return GestureDetector(
+            key: itemKey,
+            child: exercise(context, exercises[index]),
+            onTap: () => {
+              setCurExercise(index),
+              playExercise(itemKey, index)
+            }
+          );
         }
       )
       : Row(
@@ -180,16 +188,21 @@ Widget workoutList(BuildContext context, List<Exercise> exercises) {
       );
 }
 
+Future playExercise(itemKey, index) async {
+  final context = itemKey.currentContext!;
+  await Scrollable.ensureVisible(context, duration: Duration(milliseconds: 500));
+}
 
-Widget workout(BuildContext context, Exercise exercise) { 
+
+Widget exercise(BuildContext context, Exercise exercise) { 
   Duration duration = Duration(seconds: exercise.length);
   String sDuration = "${duration.inMinutes.toString().padLeft(2, "0")}:${duration.inSeconds.remainder(60).toString().padLeft(2, "0")}";
   return Row(
     // alignment: WrapAlignment.spaceAround,
     children: [
       Container( 
-        margin: EdgeInsets.all(8.0),
-        height: 100, 
+        margin: const EdgeInsets.all(8.0),
+        height: 120, 
         width: MediaQuery.of(context).size.width / 6,
         child: Image.network(exercise.thumbnailSrc),
       ),
@@ -199,7 +212,7 @@ Widget workout(BuildContext context, Exercise exercise) {
         children: [
           Text(
             exercise.name, 
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold, 
               color: Colors.black, 
               fontSize: 15
