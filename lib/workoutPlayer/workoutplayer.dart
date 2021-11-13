@@ -191,7 +191,7 @@ Widget workout(BuildContext context, Exercise exercise) {
         margin: EdgeInsets.all(8.0),
         height: 100, 
         width: MediaQuery.of(context).size.width / 6,
-        decoration: BoxDecoration(color: Colors.grey),
+        child: Image.network(exercise.thumbnailSrc),
       ),
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
