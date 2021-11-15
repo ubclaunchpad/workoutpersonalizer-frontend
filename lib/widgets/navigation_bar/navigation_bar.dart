@@ -17,16 +17,16 @@ class _NavigationBarState extends State<NavigationBar> {
         mainAxisSize: MainAxisSize.max,
         children: const [
           NavigationItem(
-            title: 'Dashboard',
-            routeName: routeDashboard,
+            title: 'My Workouts',
+            routeName: myWorkoutsRoute,
           ),
           NavigationItem(
-            title: 'My Workouts',
-            routeName: routeMyWorkouts,
+            title: 'Explore',
+            routeName: exploreRoute,
           ),
           NavigationItem(
             title: "Creator's Corner",
-            routeName: routeCreatorsCorner,
+            routeName: creatorsCornerRoute,
           ),
         ],
       ),

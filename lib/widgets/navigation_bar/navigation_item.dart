@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/routes/routes.dart';
-import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/interactive_nav_item.dart';
 
 class NavigationItem extends StatelessWidget {
   final String title;
@@ -16,8 +16,12 @@ class NavigationItem extends StatelessWidget {
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 50.0),
-        child: InteractiveNavItem(
-          text: title,
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Text(
+            title,
+            style: navBarItemStyle,
+          ),
         ),
       ),
     );
