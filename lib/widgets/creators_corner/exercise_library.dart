@@ -21,32 +21,56 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
 
   Widget buildGrid(BuildContext context) {
     return GridView.builder(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 450,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
             childAspectRatio: 3 / 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
+        padding: const EdgeInsets.fromLTRB(50.0, 5.0, 50.0, 5.0),
         itemCount: _exerciseList.length,
-        itemBuilder: (context, index) {
-          return Card(
-            child: Column(
-              children: <Widget>[
-                ListTile(
-                  leading: const Icon(Icons.add),
-                  title: Text(_exerciseList[index]),
-                  subtitle: Text(
-                    'muscle group',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
+        itemBuilder: (BuildContext context, int index) {
+          return Draggable(
+            hitTestBehavior: HitTestBehavior.translucent,
+            feedback: Container(
+              height: 120,
+              width: 120,
+              decoration: BoxDecoration(
+                boxShadow: const <BoxShadow>[
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(1.1, 1.1),
+                    blurRadius: 10.0,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
+                ],
+                color: Colors.white,
+                border: Border.all(width: 5),
+                shape: BoxShape.rectangle,
+              ),
+              child: Column(
+                children: <Widget>[
+                  const Padding(padding: EdgeInsets.all(15)),
+                  Text(_exerciseList[index]),
+                  const Padding(padding: EdgeInsets.all(5)),
+                  const Text('muscle group'),
+                  const Padding(padding: EdgeInsets.all(15)),
+                ],
+              ),
+            ),
+            data: index,
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text(_exerciseList[index]),
+                    subtitle: Text('muscle group',
+                        style: TextStyle(color: Colors.black.withOpacity(0.6))),
+                  ),
+                  Text(
                     'description',
                     style: TextStyle(color: Colors.black.withOpacity(0.6)),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         });
