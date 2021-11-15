@@ -27,10 +27,10 @@ class _WorkoutViewer extends State<WorkoutViewer> {
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
       Container(
-        color: Colors.black,
+        color: Colors.white,
         alignment: Alignment.center,
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.75,
+        height: MediaQuery.of(context).size.height * 0.5,
         child: AspectRatio(
             aspectRatio:
                 16 / 9, // TODO: should be the aspect ratio of the video
