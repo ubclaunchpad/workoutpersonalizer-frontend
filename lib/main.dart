@@ -1,3 +1,4 @@
+// Absolute pathing is used throughout this project
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/app_view.dart';
 import 'package:workoutpersonalizer_frontend/routes/routes.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         child: child!,
       ),
       // Where the program will start when first opened
-      initialRoute: myWorkoutsRoute,
+      initialRoute: routeMyWorkouts,
       // Used to switch between pages without having a context
       navigatorKey: navKey,
       onGenerateRoute: RouteGenerator.generateRoute,

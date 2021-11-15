@@ -25,6 +25,10 @@ class _NavigationBarState extends State<NavigationBar> {
             routeName: exploreRoute,
           ),
           NavigationItem(
+            title: 'Dashboard',
+            routeName: routeDashboard,
+          ),
+          NavigationItem(
             title: "Creator's Corner",
             routeName: creatorsCornerRoute,
           ),
