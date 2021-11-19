@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class CustomTab extends StatelessWidget {
   CustomTab({required this.title});
@@ -9,7 +10,7 @@ class CustomTab extends StatelessWidget {
     return Tab(
       child: Text(
         title,
-        style: const TextStyle(fontSize: 17, color: Colors.black),
+        style: navBarItemStyle,
       ),
     );
   }

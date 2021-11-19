@@ -6,6 +6,7 @@ class CustomTabBar extends StatelessWidget {
   final TabController controller;
   final List<Widget> tabs;
 
+  @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double tabBarScaling = screenWidth > 1400
