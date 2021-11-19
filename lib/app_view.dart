@@ -62,7 +62,7 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
           controller: tabController,
           tabs: contentViews.map((e) => e.tab).toList(),
         ),
-        Container(
+        SizedBox(
           height: screenHeight * 0.85,
           child: TabBarView(
             controller: tabController,

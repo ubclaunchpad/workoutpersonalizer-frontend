@@ -6,11 +6,15 @@ class CustomTab extends StatelessWidget {
 
   final String title;
 
+  @override
   Widget build(BuildContext context) {
     return Tab(
-      child: Text(
-        title,
-        style: navBarItemStyle,
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Text(
+          title,
+          style: navBarItemStyle,
+        ),
       ),
     );
   }
