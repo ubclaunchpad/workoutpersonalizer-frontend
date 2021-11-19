@@ -1,14 +1,14 @@
 // Absolute pathing is used throughout this project
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/app_view.dart';
-import 'package:workoutpersonalizer_frontend/routes/routes.dart';
-import 'package:workoutpersonalizer_frontend/routes/routes_generator.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,14 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      builder: (_, child) => AppView(
-        child: child!,
-      ),
-      // Where the program will start when first opened
-      initialRoute: routeMyWorkouts,
-      // Used to switch between pages without having a context
-      navigatorKey: navKey,
-      onGenerateRoute: RouteGenerator.generateRoute,
+      builder: (_, child) => AppView(),
     );
   }
 }
