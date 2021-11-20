@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.workoutpersonalizer_frontend">
+    package="com.launchpad.workoutpersonalizer_frontend">
    <application
         android:label="workoutpersonalizer_frontend"
         android:icon="@mipmap/ic_launcher">

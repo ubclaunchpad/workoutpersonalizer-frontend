@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "110697366673",
+    "project_id": "workout-personalizer",
+    "storage_bucket": "workout-personalizer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110697366673:android:33ab24d3a181b3980fab30",
+        "android_client_info": {
+          "package_name": "com.launchpad.workoutpersonalizer_frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110697366673-qo9e9lhvvgfdrj87mlacvd7e6ba07j68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2Lsuavp8eKtnMv3dRnTwu389EK8PtVbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110697366673-qo9e9lhvvgfdrj87mlacvd7e6ba07j68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
