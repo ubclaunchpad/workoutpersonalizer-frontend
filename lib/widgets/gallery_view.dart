@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:workoutpersonalizer_frontend/screens/playlist_gallery.dart';
 
 class Gallery extends StatefulWidget {
   final List<String> exerciseList;
@@ -69,33 +68,51 @@ class GalleryState extends State<Gallery> {
                 ),
                 Stack(alignment: Alignment.bottomLeft, children: <Widget>[
                   Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: PopupMenuButton(
-                        onSelected: (value) {
-                          addToWorkouts(value);
-                        },
-                        itemBuilder: (context) => [
-                          const PopupMenuItem(
-                            child: Text("First"),
-                            value: "first",
-                          ),
-                          const PopupMenuItem(
-                            child: Text("Second"),
-                            value: "second",
-                          )
-                        ],
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5.0), //or 15.0
-                          child: Container(
-                            height: 30.0,
-                            width: 30.0,
-                            color: Colors.black,
-                            child: const Icon(Icons.add,
-                                color: Colors.white, size: 25.0),
-                          ),
-                        ),
-                      ))
+                  Positioned(
+                      top: 0.0,
+                      right: 0.0,
+                      child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: PopupMenuButton(
+                            onSelected: (value) {
+                              addToWorkouts(value);
+                            },
+                            itemBuilder: (context) => [
+                              const PopupMenuItem(
+                                child: Text("First"),
+                                value: "first",
+                              ),
+                              const PopupMenuItem(
+                                child: Text("Second"),
+                                value: "second",
+                              )
+                            ],
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                  ),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5))),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 5.0, vertical: 3.0),
+                                child: const Text('ADD',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(color: Color(0xFF000000))),
+                              ),
+                            ),
+                            // child: ClipRRect(
+                            //   borderRadius:
+                            //       BorderRadius.circular(5.0), //or 15.0
+                            //   child: Container(
+                            //     height: 30.0,
+                            //     width: 30.0,
+                            //     color: Colors.black,
+                            //     child: const Text("Add"),
+                            //   ),
+                            // ),
+                          )))
                 ]),
                 Padding(
                     padding: const EdgeInsets.all(8),
