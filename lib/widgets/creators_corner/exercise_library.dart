@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:universal_html/html.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 // TODO: Displays the possible videos to add to a workout
 
@@ -29,7 +30,8 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
         padding: const EdgeInsets.fromLTRB(50.0, 5.0, 50.0, 5.0),
         itemCount: _exerciseList.length,
         itemBuilder: (BuildContext context, int index) {
-          return Draggable(
+          return Draggable<String>(
+            data: _exerciseList[index],
             hitTestBehavior: HitTestBehavior.translucent,
             feedback: Container(
               height: 120,
@@ -49,14 +51,19 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
               child: Column(
                 children: <Widget>[
                   const Padding(padding: EdgeInsets.all(15)),
-                  Text(_exerciseList[index]),
+                  Text(
+                    _exerciseList[index],
+                    style: draggableBoxStyle,
+                  ),
                   const Padding(padding: EdgeInsets.all(5)),
-                  const Text('muscle group'),
+                  const Text(
+                    'muscle group',
+                    style: draggableBoxStyle,
+                  ),
                   const Padding(padding: EdgeInsets.all(15)),
                 ],
               ),
             ),
-            data: index,
             child: Card(
               child: Column(
                 children: <Widget>[

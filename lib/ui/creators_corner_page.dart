@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/widgets/creators_corner/exercise_library.dart';
+import 'package:workoutpersonalizer_frontend/widgets/creators_corner/workout_editor.dart';
 import 'package:workoutpersonalizer_frontend/widgets/creators_corner/workout_viewer.dart';
 
 class CreatorsCornerPage extends StatelessWidget {
@@ -28,9 +29,7 @@ class CreatorsCornerPage extends StatelessWidget {
         ),
         Expanded(
           flex: 4,
-          child: Container(
-            color: Colors.red,
-          ),
+          child: WorkoutEditor(),
         ),
       ],
     );
