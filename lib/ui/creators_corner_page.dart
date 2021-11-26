@@ -3,6 +3,8 @@ import 'package:workoutpersonalizer_frontend/widgets/creators_corner/exercise_li
 import 'package:workoutpersonalizer_frontend/widgets/creators_corner/workout_viewer.dart';
 
 class CreatorsCornerPage extends StatelessWidget {
+  const CreatorsCornerPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
