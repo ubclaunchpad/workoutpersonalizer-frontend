@@ -80,27 +80,53 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 2.0),
-            child: Text('Exercise Library',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                )),
-          ),
-        ),
-        Container(
-          alignment: Alignment.centerLeft,
-          padding: const EdgeInsets.fromLTRB(8.0, 2.0, 8.0, 8.0),
-          child: OutlinedButton(
-            onPressed: () {
-              //TODO: implement adding break feature (WP-37)
-              print('Received Click');
-            },
-            child: const Text('Add Break'),
-          ),
+        Row(
+          children: <Widget>[
+            const Padding(padding: EdgeInsets.fromLTRB(50.0, 30.0, 5.0, 30.0)),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 2.0),
+                // TODO: Turn into a button
+                child: Text('All',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    )),
+              ),
+            ),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 2.0),
+                child: Text('|',
+                    style: TextStyle(
+                      fontSize: 25,
+                    )),
+              ),
+            ),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 2.0),
+                // TODO: Turn into a button
+                child: Text('Saved',
+                    style: TextStyle(
+                      fontSize: 25,
+                    )),
+              ),
+            ),
+            // TODO: Fix alignment of button
+            const Spacer(),
+            OutlinedButton(
+              onPressed: () {
+                //TODO: implement adding break feature (WP-37)
+                print('Received Click');
+              },
+              child: const Text('Add Break'),
+            ),
+            const Padding(padding: EdgeInsets.fromLTRB(50.0, 30.0, 5.0, 30.0)),
+          ],
         ),
         Expanded(
           child: Scaffold(body: buildGrid(context)),
