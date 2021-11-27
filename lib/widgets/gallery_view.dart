@@ -75,6 +75,7 @@ class GalleryState extends State<Gallery> {
                           padding: EdgeInsets.all(8.0),
                           child: PopupMenuButton(
                             onSelected: (value) {
+                              // Navigator.pushNamed();
                               addToWorkouts(value);
                             },
                             itemBuilder: (context) => [
