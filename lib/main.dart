@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/app_view.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
