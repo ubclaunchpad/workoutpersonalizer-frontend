@@ -18,6 +18,7 @@ class ExplorePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
+        //TODO: change playlistGallery param to specify WHICH page, not just a bool
         child: Gallery(exerciseList: _exerciseList, playlistGallery: true));
     // return Scaffold(
     //     drawer: Sidebar(),

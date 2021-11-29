@@ -61,10 +61,13 @@ class GalleryState extends State<Gallery> {
                       style: TextStyle(color: Colors.black.withOpacity(0.6))),
                   trailing: widget.playlistGallery
                       ? IconButton(
-                          onPressed: () => {},
+                          onPressed: () {
+                            addToLibrary();
+                          },
                           icon: const Icon(Icons.favorite),
                         )
                       : null,
+                  tileColor: Theme.of(context).primaryColor,
                 ),
                 Stack(alignment: Alignment.bottomLeft, children: <Widget>[
                   Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
@@ -72,10 +75,9 @@ class GalleryState extends State<Gallery> {
                       top: 0.0,
                       right: 0.0,
                       child: Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: PopupMenuButton(
                             onSelected: (value) {
-                              // Navigator.pushNamed();
                               addToWorkouts(value);
                             },
                             itemBuilder: (context) => [
@@ -103,16 +105,17 @@ class GalleryState extends State<Gallery> {
                                     style: TextStyle(color: Color(0xFF000000))),
                               ),
                             ),
-                            // child: ClipRRect(
-                            //   borderRadius:
-                            //       BorderRadius.circular(5.0), //or 15.0
-                            //   child: Container(
-                            //     height: 30.0,
-                            //     width: 30.0,
-                            //     color: Colors.black,
-                            //     child: const Text("Add"),
-                            //   ),
-                            // ),
+                          ))),
+                  Positioned(
+                      top: 25,
+                      right: 0,
+                      child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: IconButton(
+                            onPressed: () {
+                              addToLibrary();
+                            },
+                            icon: const Icon(Icons.favorite),
                           )))
                 ]),
                 Padding(
