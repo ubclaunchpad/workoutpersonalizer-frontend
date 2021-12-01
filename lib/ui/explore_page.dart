@@ -21,7 +21,7 @@ class ExplorePage extends StatelessWidget {
     return Row(children: const <Widget>[
       SideLayout(),
       Expanded(
-          flex: 4,
+          flex: 7,
           child: Gallery(exerciseList: _exerciseList, playlistGallery: true))
     ]);
 

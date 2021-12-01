@@ -45,7 +45,7 @@ class GalleryState extends State<Gallery> {
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
-            childAspectRatio: 13 / 16,
+            childAspectRatio: 8 / 7,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
         itemCount: exercisesToDisplay.length,
@@ -63,9 +63,9 @@ class GalleryState extends State<Gallery> {
                   children: <Widget>[
                     ListTile(
                       title: Text(exercisesToDisplay[index]),
-                      subtitle: Text('Muscle group',
-                          style:
-                              TextStyle(color: Colors.black.withOpacity(0.6))),
+                      // subtitle: Text('Muscle group',
+                      //     style:
+                      //         TextStyle(color: Colors.black.withOpacity(0.6))),
                       trailing: widget.playlistGallery
                           ? IconButton(
                               onPressed: () {
@@ -77,7 +77,19 @@ class GalleryState extends State<Gallery> {
                       tileColor: Theme.of(context).primaryColor,
                     ),
                     Stack(alignment: Alignment.bottomLeft, children: <Widget>[
-                      Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
+                      // Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
+                      // Container(
+                      //     decoration: BoxDecoration(
+                      //         image: DecorationImage(
+                      //             image: new NetworkImage(
+                      //                 'https://i.stack.imgur.com/lkd0a.png')))),
+                      AspectRatio(
+                        aspectRatio: 1.8,
+                        child: Image.asset(
+                          'images/pushup.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                       Positioned(
                           top: 0.0,
                           right: 0.0,
