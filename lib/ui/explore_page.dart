@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/widgets/sidelayout.dart';
 import '../widgets/gallery_view.dart';
 import '../widgets/sidebar.dart';
 
@@ -17,10 +18,17 @@ class ExplorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-        child: Gallery(exerciseList: _exerciseList, playlistGallery: true));
+    return Row(children: const <Widget>[
+      SideLayout(),
+      Expanded(
+          flex: 4,
+          child: Gallery(exerciseList: _exerciseList, playlistGallery: true))
+    ]);
+
+    // return const Center(
+    //     child: Gallery(exerciseList: _exerciseList, playlistGallery: true));
     // return Scaffold(
-    //     drawer: Sidebar(),
+    //     key: Sidebar(),
     //     appBar: AppBar(
     //       title: const Text('Playlist gallery'),
     //     ),
