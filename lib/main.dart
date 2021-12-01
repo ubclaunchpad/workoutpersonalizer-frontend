@@ -18,7 +18,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      builder: (_, child) => AppView(),
+      // builder: (_, child) => AppView(),
+      home: AppView(),
     );
   }
 }
