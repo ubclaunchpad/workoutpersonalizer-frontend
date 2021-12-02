@@ -5,24 +5,45 @@ import '../widgets/sidebar.dart';
 
 class ExplorePage extends StatelessWidget {
   static const List<String> _exerciseList = [
-    'Exercise 1',
-    'Exercise 2',
-    'Exercise 3',
-    'Exercise 4',
-    'Exercise 5',
-    'Exercise 6',
-    'Exercise 7'
+    'Pushup',
+    'Crunch',
+    'Neck Circles',
+    'Hamstring Stretch',
+    'Plank',
+    'Hip Flexor Stretch',
   ];
-
+  static const List<String> _descriptionList = [
+    'Pushup Description',
+    'Crunch Description',
+    'Neck Circles Description',
+    'Hamstring Stretch Description',
+    'Plank Description',
+    'Hip Flexor Stretch Description',
+  ];
+  static const List<String> _tagList = [
+    'chest',
+    'abs',
+    'neck',
+    'legs',
+    'abs',
+    'legs',
+  ];
   const ExplorePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: const <Widget>[
+    return Row(children: <Widget>[
       SideLayout(),
+      const VerticalDivider(),
       Expanded(
           flex: 7,
-          child: Gallery(exerciseList: _exerciseList, playlistGallery: true))
+          child: Container(
+              padding: EdgeInsets.all(20),
+              child: Gallery(
+                  exerciseList: _exerciseList,
+                  descriptionList: _descriptionList,
+                  tagList: _tagList,
+                  playlistGallery: true)))
     ]);
 
     // return const Center(

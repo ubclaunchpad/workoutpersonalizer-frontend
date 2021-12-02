@@ -3,10 +3,16 @@ import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class Gallery extends StatefulWidget {
   final List<String> exerciseList;
+  final List<String> descriptionList;
+  final List<String> tagList;
   final bool playlistGallery;
 
   const Gallery(
-      {Key? key, required this.exerciseList, required this.playlistGallery})
+      {Key? key,
+      required this.exerciseList,
+      required this.playlistGallery,
+      required this.descriptionList,
+      required this.tagList})
       : super(key: key);
 
   @override
@@ -15,14 +21,14 @@ class Gallery extends StatefulWidget {
 
 class GalleryState extends State<Gallery> {
   List<String> exercisesToDisplay = [
-    'Exercise 1',
-    'Exercise 2',
-    'Exercise 3',
-    'Exercise 4',
-    'Exercise 5',
-    'Exercise 6',
-    'Exercise 7'
+    'Pushup',
+    'Crunch',
+    'Neck Circles',
+    'Hamstring Stretch',
+    'Plank',
+    'Hip Flexor Stretch',
   ];
+
   void addToWorkouts(value) {
     print("this is value " + value);
   }
@@ -41,7 +47,10 @@ class GalleryState extends State<Gallery> {
     return ret;
   }
 
-  Widget buildGrid(BuildContext context, exerciseList, playlistGallery) {
+  Widget buildGrid(BuildContext context, exerciseList, descriptionList, tagList,
+      playlistGallery) {
+    //TOO: figure out userEffect but in flutter to get rid of duplicate list
+    // exercisesToDisplay = exerciseList;
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
@@ -53,7 +62,9 @@ class GalleryState extends State<Gallery> {
           return GestureDetector(
               onTap: () async {
                 await showDialog(
-                    context: context, builder: (_) => ExerciseDialog());
+                    context: context,
+                    builder: (_) => ExerciseDialog(
+                        exerciseList[index], descriptionList[index]));
               },
               child: Card(
                 semanticContainer: true,
@@ -63,28 +74,11 @@ class GalleryState extends State<Gallery> {
                   children: <Widget>[
                     ListTile(
                       title: Text(exercisesToDisplay[index]),
-                      // subtitle: Text('Muscle group',
-                      //     style:
-                      //         TextStyle(color: Colors.black.withOpacity(0.6))),
-                      trailing: widget.playlistGallery
-                          ? IconButton(
-                              onPressed: () {
-                                addToLibrary();
-                              },
-                              icon: const Icon(Icons.favorite),
-                            )
-                          : null,
                       tileColor: Theme.of(context).primaryColor,
                     ),
                     Stack(alignment: Alignment.bottomLeft, children: <Widget>[
-                      // Image.asset('images/pushup.jpg', fit: BoxFit.fitWidth),
-                      // Container(
-                      //     decoration: BoxDecoration(
-                      //         image: DecorationImage(
-                      //             image: new NetworkImage(
-                      //                 'https://i.stack.imgur.com/lkd0a.png')))),
                       AspectRatio(
-                        aspectRatio: 1.8,
+                        aspectRatio: 1.9,
                         child: Image.asset(
                           'images/pushup.jpg',
                           fit: BoxFit.cover,
@@ -143,7 +137,7 @@ class GalleryState extends State<Gallery> {
                         child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Tags',
+                              '#' + tagList[index],
                               style: TextStyle(
                                   color: Colors.black.withOpacity(0.6)),
                             ))),
@@ -173,58 +167,26 @@ class GalleryState extends State<Gallery> {
     return Column(children: [
       buildSearchBar(context, widget.exerciseList),
       Expanded(
-          child:
-              buildGrid(context, widget.exerciseList, widget.playlistGallery))
+          child: buildGrid(context, widget.exerciseList, widget.descriptionList,
+              widget.tagList, widget.playlistGallery))
     ]);
   }
 }
 
-// class ExerciseDialog extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return SimpleDialog(
-//       contentPadding: EdgeInsets.all(50),
-//       title: Text("this is an exercise"),
-//       children: [
-//         Container(
-//             height: 900,
-//             width: 800,
-//             child: Card(
-//               semanticContainer: true,
-//               clipBehavior: Clip.antiAliasWithSaveLayer,
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.stretch,
-//                 children: <Widget>[
-//                   ListTile(
-//                     title: Text("this is an exercise"),
-//                     subtitle: Text('Muscle group',
-//                         style: TextStyle(color: Colors.black.withOpacity(0.6))),
-//                     tileColor: Theme.of(context).primaryColor,
-//                   ),
-//                   Image.asset('images/pushup.jpg', fit: BoxFit.contain),
-//                   Padding(
-//                       padding: const EdgeInsets.all(8),
-//                       child: Align(
-//                           alignment: Alignment.centerLeft,
-//                           child: Text(
-//                             'Tags',
-//                             style:
-//                                 TextStyle(color: Colors.black.withOpacity(0.6)),
-//                           ))),
-//                 ],
-//               ),
-//             ))
-//       ],
-//     );
-//   }
-// }
-
 class ExerciseDialog extends StatelessWidget {
+  ExerciseDialog(this.exercise, this.description);
+  final String exercise;
+  final String description;
+
+  void addToWorkouts(value) {
+    print("this is value " + value);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
       child: Container(
-          height: 800,
+          height: 700,
           width: 800,
           child: Card(
             semanticContainer: true,
@@ -233,27 +195,61 @@ class ExerciseDialog extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ListTile(
-                  title: Text("Exercise", style: modalTitle),
-                  // subtitle: Text('Muscle group',
-                  //     style: TextStyle(color: Colors.black.withOpacity(0.6))),
-                  // tileColor: Theme.of(context).primaryColor,
-                  trailing: OutlinedButton(
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all(Colors.black),
+                  title: Text(exercise, style: modalTitle),
+                  trailing: PopupMenuButton(
+                    onSelected: (value) {
+                      addToWorkouts(value);
+                    },
+                    itemBuilder: (context) => [
+                      const PopupMenuItem(
+                        child: Text("First"),
+                        value: "first",
+                      ),
+                      const PopupMenuItem(
+                        child: Text("Second"),
+                        value: "second",
+                      )
+                    ],
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5))),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 5.0, vertical: 3.0),
+                        child: const Text('ADD',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(color: Color(0xFF000000))),
+                      ),
                     ),
-                    child: Text("ADD"),
-                    onPressed: () {},
                   ),
                 ),
-                Image.asset('images/pushup.jpg', fit: BoxFit.contain),
+                AspectRatio(
+                  aspectRatio: 1.5,
+                  child: Image.asset(
+                    'images/pushup.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text('Description',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20)))),
                 Padding(
                     padding: const EdgeInsets.all(8),
                     child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Muscle Group',
-                          style: TextStyle(color: Colors.black),
-                        ))),
+                        child: Text(description,
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 15)))),
               ],
             ),
           )),
