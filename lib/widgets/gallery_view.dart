@@ -152,7 +152,7 @@ class GalleryState extends State<Gallery> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
-        decoration: InputDecoration(hintText: 'Search Exercise'),
+        decoration: const InputDecoration(hintText: 'Search Exercise'),
         onChanged: (text) {
           text = text.toLowerCase();
           setState(() {
@@ -235,7 +235,7 @@ class ExerciseDialog extends StatelessWidget {
                   ),
                 ),
                 const Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.all(8),
                     child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text('Description',

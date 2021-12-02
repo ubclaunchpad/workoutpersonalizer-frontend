@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/widgets/sidelayout.dart';
 import '../widgets/gallery_view.dart';
-import '../widgets/sidebar.dart';
 
 class ExplorePage extends StatelessWidget {
   static const List<String> _exerciseList = [
@@ -38,8 +37,8 @@ class ExplorePage extends StatelessWidget {
       Expanded(
           flex: 7,
           child: Container(
-              padding: EdgeInsets.all(20),
-              child: Gallery(
+              padding: const EdgeInsets.all(20),
+              child: const Gallery(
                   exerciseList: _exerciseList,
                   descriptionList: _descriptionList,
                   tagList: _tagList,
