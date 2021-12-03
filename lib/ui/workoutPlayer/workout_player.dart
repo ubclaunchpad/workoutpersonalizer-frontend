@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import 'package:workoutpersonalizer_frontend/models/Exercise.dart';
+import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/models/Exercise.dart';
 
 import 'video_player.dart';
 
@@ -39,14 +39,13 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
   void setCurExercise(int index) {
     setState(() {
       curExerciseIndex = index;
+      
     });
   }
 
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
-      key: _scaffoldKey,
-      appBar: theAppBar(),
       body: Row(
         children: [
           Expanded(
@@ -61,7 +60,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
           Expanded(
             flex: 1,
             child: Container(
-              color: Colors.grey[300],
+              color: Colors.orange,
               child: Column(
                 children: [
                   workoutTitle(),
@@ -77,31 +76,6 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
     );
     return scaffold;
   }
-}
-
-theAppBar() { 
-  return AppBar(
-    backgroundColor: Colors.grey,
-        title: Row(
-          children: <Widget>[
-            Text('WorkoutApp'), 
-            OutlinedButton(onPressed: () {}, child: const Text('DashBoard', style: TextStyle(color: Colors.white))),
-            OutlinedButton(onPressed: () {}, child: const Text('My Workouts', style: TextStyle(color: Colors.white))),
-          ]
-        ),
-        actions: [
-          ClipOval(
-            child: Material(
-              color: Colors.blue, 
-              child: InkWell(
-                splashColor: Colors.red, 
-                onTap: () {}, 
-                child: SizedBox(width: 56, height: 56)
-              )
-            )
-          )
-        ],
-      );
 }
 
 Widget videoPlayerFunction(BuildContext context, String videoSrcUrl)  {
@@ -154,7 +128,7 @@ Widget videoDescription() {
 
 Widget workoutTitle() { 
   return const Text(
-    'Workout Title', 
+    'Title of Workout', 
     textAlign: TextAlign.left, 
     style: TextStyle(
       fontWeight: FontWeight.bold, 
@@ -175,7 +149,7 @@ Widget exerciseList(BuildContext context, List<Exercise> exercises, Function set
             child: exercise(context, exercises[index]),
             onTap: () => {
               setCurExercise(index),
-              playExercise(itemKey, index)
+              playExercise(itemKey, index),
             }
           );
         }
