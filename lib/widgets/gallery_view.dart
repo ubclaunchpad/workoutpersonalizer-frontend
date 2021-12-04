@@ -147,7 +147,6 @@ class GalleryState extends State<Gallery> {
         });
   }
 
-  // from https://stackoverflow.com/questions/60813379/how-to-put-searchbar-into-appbar-flutter
   Widget buildSearchBar(BuildContext context, exerciseList) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
