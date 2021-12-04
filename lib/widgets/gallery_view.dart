@@ -162,7 +162,7 @@ class GalleryState extends State<Gallery> {
       ),
     );
   }
-
+@override
   Widget build(BuildContext context) {
     return Column(children: [
       buildSearchBar(context, widget.exerciseList),
