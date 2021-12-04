@@ -13,21 +13,27 @@ class CreatorsCornerPage extends StatelessWidget {
       children: <Widget>[
         Expanded(
           flex: 6,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              const Expanded(
-                flex: 4,
-                child: WorkoutViewer(),
-              ),
-              Expanded(
-                flex: 6,
-                child: ExerciseLibrary(),
-              ),
-            ],
+          child: Container(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                const Expanded(
+                  flex: 4,
+                  child: WorkoutViewer(),
+                ),
+                const VerticalDivider(
+                    color: Color(0xFFDADADA),
+                    thickness: 2,
+                ),
+                Expanded(
+                  flex: 6,
+                  child: ExerciseLibrary(),
+                ),
+              ],
+            ),
           ),
         ),
-        Expanded(
+        const Expanded(
           flex: 4,
           child: WorkoutEditor(),
         ),

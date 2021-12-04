@@ -61,6 +61,7 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
         ),
         Expanded(
           child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
             controller: tabController,
             children: contentViews.map((e) => e.content).toList(),
           ),
