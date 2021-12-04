@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:expandable/expandable.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/models/Exercise.dart';
@@ -66,7 +67,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
                 children: [
                   workoutTitle(),
                   Expanded(
-                    child: exerciseList(context, exercises, setCurExercise, _itemScrollController),
+                    child: exerciseList(context, exercises, setCurExercise, _itemScrollController, curExerciseIndex),
                   )
                 ],
               )
@@ -142,7 +143,7 @@ Widget workoutTitle() {
   );
 }
 
-Widget exerciseList(BuildContext context, List<Exercise> exercises, Function setCurExercise, ItemScrollController _itemScrollController) {
+Widget exerciseList(BuildContext context, List<Exercise> exercises, Function setCurExercise, ItemScrollController _itemScrollController, curExerciseIndex) {
   return exercises.isNotEmpty
     ? ScrollablePositionedList.builder(
         itemScrollController: _itemScrollController,
@@ -151,7 +152,7 @@ Widget exerciseList(BuildContext context, List<Exercise> exercises, Function set
           var itemKey = GlobalKey();
           return GestureDetector(
             key: itemKey,
-            child: exercise(context, exercises[index]),
+            child: exercise(context, exercises[index], curExerciseIndex == index),
             onTap: () => {
               setCurExercise(index),
               playExercise(itemKey, index, _itemScrollController),
@@ -176,40 +177,48 @@ Future playExercise(itemKey, index, _scrollController) async {
 }
 
 
-Widget exercise(BuildContext context, Exercise exercise) {
+Widget exercise(BuildContext context, Exercise exercise, bool isCurIndex) {
   Duration duration = Duration(seconds: exercise.length);
   String sDuration = "${duration.inMinutes.toString().padLeft(2, "0")}:${duration.inSeconds.remainder(60).toString().padLeft(2, "0")}";
-  return Row(
-    // alignment: WrapAlignment.spaceAround,
-    children: [
-      Container(
-        margin: const EdgeInsets.all(8.0),
-        height: 120,
-        width: MediaQuery.of(context).size.width / 6,
-        child: Image.network(exercise.thumbnailSrc),
-      ),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+  return Container(
+    color: isCurIndex ? Colors.white : Colors.transparent,
+    child: ExpandablePanel(
+      header: Row(
         children: [
-          Text(
-            exercise.name,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              fontSize: 15
-            )
+          Container(
+            margin: const EdgeInsets.all(8.0),
+            height: 120,
+            width: MediaQuery.of(context).size.width / 6,
+            child: Image.network(exercise.thumbnailSrc),
           ),
-          Text(
-            sDuration,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              fontSize: 10
-            )
-          ),
+          Flexible(child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                exercise.name,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 15
+                )
+              ),
+              Text(
+                sDuration,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  fontSize: 10
+                )
+              ),
+            ],
+          ),)
         ],
-      )
-    ],
+      ),
+      collapsed: Container(),
+      expanded: Text(exercise.description, softWrap: true),
+      theme: ExpandableThemeData(bodyAlignment: ExpandablePanelBodyAlignment.center)
+    )
   );
 }

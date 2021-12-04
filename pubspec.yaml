@@ -41,6 +41,7 @@ dependencies:
   circular_countdown_timer: ^0.2.0
   models: ^0.0.2
   scrollable_positioned_list: ^0.2.3
+  expandable: ^5.0.1
 
 dev_dependencies:
   flutter_test:
