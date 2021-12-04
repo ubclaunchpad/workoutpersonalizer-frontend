@@ -147,7 +147,6 @@ class _GalleryState extends State<Gallery> {
         });
   }
 
-  // from https://stackoverflow.com/questions/60813379/how-to-put-searchbar-into-appbar-flutter
   Widget _buildSearchBar(BuildContext context, exerciseList) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -163,6 +162,7 @@ class _GalleryState extends State<Gallery> {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Column(children: [
       _buildSearchBar(context, widget.exerciseList),
