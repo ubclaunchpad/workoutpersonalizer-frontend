@@ -28,7 +28,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
     String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
     String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
     exercises = [
-      Exercise(1, "Exercise 1", "Exercise1 Description", dummyThumbnailUrl, "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", 1),
+      Exercise(1, "Exercise 1", "Exercise1 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1.mp4", 44),
       Exercise(2, "Exercise 2", "Exercise2 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
       Exercise(3, "Exercise 3", "Exercise3 Description", dummyThumbnailUrl, dummyVideoUrl, 10),
       Exercise(4, "Exercise 4", "Exercise4 Description", dummyThumbnailUrl, dummyVideoUrl, 60),
@@ -218,7 +218,12 @@ Widget exercise(BuildContext context, Exercise exercise, bool isCurIndex) {
       ),
       collapsed: Container(),
       expanded: Text(exercise.description, softWrap: true),
-      theme: ExpandableThemeData(bodyAlignment: ExpandablePanelBodyAlignment.center)
+      theme: const ExpandableThemeData(
+        bodyAlignment: ExpandablePanelBodyAlignment.center,
+        tapHeaderToExpand: false,
+        tapBodyToExpand: true,
+        tapBodyToCollapse: true,
+      )
     )
   );
 }
