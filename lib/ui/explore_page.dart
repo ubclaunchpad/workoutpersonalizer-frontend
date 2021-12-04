@@ -44,15 +44,5 @@ class ExplorePage extends StatelessWidget {
                   tagList: _tagList,
                   playlistGallery: true)))
     ]);
-
-    // return const Center(
-    //     child: Gallery(exerciseList: _exerciseList, playlistGallery: true));
-    // return Scaffold(
-    //     key: Sidebar(),
-    //     appBar: AppBar(
-    //       title: const Text('Playlist gallery'),
-    //     ),
-    //     body:
-    //         const Gallery(exerciseList: _exerciseList, playlistGallery: true));
   }
 }

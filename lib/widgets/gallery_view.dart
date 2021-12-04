@@ -16,10 +16,10 @@ class Gallery extends StatefulWidget {
       : super(key: key);
 
   @override
-  GalleryState createState() => GalleryState();
+  _GalleryState createState() => _GalleryState();
 }
 
-class GalleryState extends State<Gallery> {
+class _GalleryState extends State<Gallery> {
   List<String> exercisesToDisplay = [
     'Pushup',
     'Crunch',
@@ -29,15 +29,15 @@ class GalleryState extends State<Gallery> {
     'Hip Flexor Stretch',
   ];
 
-  void addToWorkouts(value) {
+  void _addToWorkouts(value) {
     print("this is value " + value);
   }
 
-  void addToLibrary() {
+  void _addToLibrary() {
     print("add to library");
   }
 
-  List<String> getDisplayItems(text, exerciseList) {
+  List<String> _getDisplayItems(text, exerciseList) {
     List<String> ret = [];
     exerciseList.forEach((String exercise) {
       if (exercise.toLowerCase().contains(text)) {
@@ -47,9 +47,9 @@ class GalleryState extends State<Gallery> {
     return ret;
   }
 
-  Widget buildGrid(BuildContext context, exerciseList, descriptionList, tagList,
-      playlistGallery) {
-    //TOO: figure out userEffect but in flutter to get rid of duplicate list
+  Widget _buildGrid(BuildContext context, exerciseList, descriptionList,
+      tagList, playlistGallery) {
+    //TODO: figure out useEffect but in flutter to get rid of duplicate list
     // exercisesToDisplay = exerciseList;
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -91,7 +91,7 @@ class GalleryState extends State<Gallery> {
                               padding: const EdgeInsets.all(8.0),
                               child: PopupMenuButton(
                                 onSelected: (value) {
-                                  addToWorkouts(value);
+                                  _addToWorkouts(value);
                                 },
                                 itemBuilder: (context) => [
                                   const PopupMenuItem(
@@ -127,7 +127,7 @@ class GalleryState extends State<Gallery> {
                               padding: const EdgeInsets.all(8.0),
                               child: IconButton(
                                 onPressed: () {
-                                  addToLibrary();
+                                  _addToLibrary();
                                 },
                                 icon: const Icon(Icons.favorite),
                               )))
@@ -148,7 +148,7 @@ class GalleryState extends State<Gallery> {
   }
 
   // from https://stackoverflow.com/questions/60813379/how-to-put-searchbar-into-appbar-flutter
-  Widget buildSearchBar(BuildContext context, exerciseList) {
+  Widget _buildSearchBar(BuildContext context, exerciseList) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
@@ -156,7 +156,7 @@ class GalleryState extends State<Gallery> {
         onChanged: (text) {
           text = text.toLowerCase();
           setState(() {
-            exercisesToDisplay = getDisplayItems(text, exerciseList);
+            exercisesToDisplay = _getDisplayItems(text, exerciseList);
           });
         },
       ),
@@ -165,10 +165,10 @@ class GalleryState extends State<Gallery> {
 
   Widget build(BuildContext context) {
     return Column(children: [
-      buildSearchBar(context, widget.exerciseList),
+      _buildSearchBar(context, widget.exerciseList),
       Expanded(
-          child: buildGrid(context, widget.exerciseList, widget.descriptionList,
-              widget.tagList, widget.playlistGallery))
+          child: _buildGrid(context, widget.exerciseList,
+              widget.descriptionList, widget.tagList, widget.playlistGallery))
     ]);
   }
 }
@@ -191,6 +191,7 @@ class ExerciseDialog extends StatelessWidget {
           child: Card(
             semanticContainer: true,
             clipBehavior: Clip.antiAliasWithSaveLayer,
+            // child: Column()
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
