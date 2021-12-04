@@ -38,16 +38,18 @@ class _WorkoutViewer extends State<WorkoutViewer> {
                 ),
               ),
             ),
-            const Divider(
-              color: Colors.black,
-              indent: 35,
-              endIndent: 175,
-              thickness: 0.5,
-              height: 100,
+            const Padding(
+              padding: EdgeInsets.only(top: 50),
+              child:  Divider(
+                color: Colors.black,
+                indent: 35,
+                endIndent: 175,
+                thickness: 0.5,
+                //height: 100,
+              ),
             ),
             Container(
-              height: 150,
-              padding: const EdgeInsets.fromLTRB(35.0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(35.0, 75, 0, 0),
               alignment: Alignment.centerLeft,
               child: const Text(
                 "Preview",
@@ -58,23 +60,20 @@ class _WorkoutViewer extends State<WorkoutViewer> {
                   fontWeight: FontWeight.w100,
                 ),
               ),
-            ),
+            ), 
           ],
         ),
         Container(
-          height: 500,
-          child: Container(
-            color: Colors.white,
-            alignment: Alignment.center,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.5,
-            child: AspectRatio(
-                aspectRatio:
-                    16 / 9, // TODO: should be the aspect ratio of the video
-                child: ChewieListItem(
-                    videoPlayerController: VideoPlayerController.network(
-                        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'))),
-          ),
+          color: Colors.white,
+          alignment: Alignment.center,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 0.4,
+          child: AspectRatio(
+              aspectRatio:
+                  16 / 9, // TODO: should be the aspect ratio of the video
+              child: ChewieListItem(
+                  videoPlayerController: VideoPlayerController.network(
+                      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'))),
         ),
       ],
     );
