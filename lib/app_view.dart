@@ -3,6 +3,7 @@ import 'package:workoutpersonalizer_frontend/models/content_view.dart';
 import 'package:workoutpersonalizer_frontend/ui/creators_corner_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/explore_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/workout_player.dart';
+import 'package:workoutpersonalizer_frontend/ui/my_workouts_page.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab_bar.dart';
 
@@ -20,7 +21,7 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
   List<ContentView> contentViews = [
     ContentView(
       tab: CustomTab(title: 'My Workouts'),
-      content: WorkoutPlayer(),
+      content: MyWorkoutsPage(),
     ),
     ContentView(
       tab: CustomTab(title: 'Explore'),
@@ -29,6 +30,10 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
     ContentView(
       tab: CustomTab(title: "Creator's Corner"),
       content: CreatorsCornerPage(),
+    ),
+    ContentView(
+      tab: CustomTab(title: 'Workout Player'),
+      content: WorkoutPlayer(),
     )
   ];
 
