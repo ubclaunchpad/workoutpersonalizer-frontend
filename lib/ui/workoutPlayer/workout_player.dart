@@ -24,7 +24,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
   @override
   void initState() {
     super.initState();
-    // TODO: fetch workout and exercises here
+    // TODO: change exercises here
     String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
     String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
     exercises = [
@@ -45,6 +45,12 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
     });
   }
 
+  void playNextExercise() {
+    if (curExerciseIndex + 1 < exercises.length) {
+      this.setCurExercise(curExerciseIndex + 1);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
@@ -54,7 +60,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
             flex: 3,
             child: Column(
               children: [
-                videoPlayerFunction(context, exercises[curExerciseIndex].videoSrc),
+                videoPlayerFunction(context, exercises[curExerciseIndex].videoSrc, this.playNextExercise),
                 videoDescription(),
               ]
             ),
@@ -80,7 +86,7 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
   }
 }
 
-Widget videoPlayerFunction(BuildContext context, String videoSrcUrl)  {
+Widget videoPlayerFunction(BuildContext context, String videoSrcUrl, Function handleVideoCompleted)  {
   return Stack(
     children: <Widget> [
       Container(
@@ -89,8 +95,8 @@ Widget videoPlayerFunction(BuildContext context, String videoSrcUrl)  {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.75,
         child: AspectRatio(
-          aspectRatio: 16/9, // TODO: should be the aspect ratio of the video
-          child: VideoPlayer(videoSrcUrl, UniqueKey())
+          aspectRatio: 16/9,
+          child: VideoPlayer(videoSrcUrl, UniqueKey(), handleVideoCompleted)
         ),
       ),
       countDownTimer(context)
@@ -175,7 +181,6 @@ Future playExercise(itemKey, index, _scrollController) async {
     curve: Curves.easeInOutCubic
   );
 }
-
 
 Widget exercise(BuildContext context, Exercise exercise, bool isCurIndex) {
   Duration duration = Duration(seconds: exercise.length);

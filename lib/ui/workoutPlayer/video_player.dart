@@ -4,15 +4,16 @@ import 'package:video_player/video_player.dart';
 
 class VideoPlayer extends StatefulWidget {
   final String videoUrl;
-  final UniqueKey newKey;
+  final Key newKey;
+  Function handleVideoCompleted;
 
-  VideoPlayer(this.videoUrl, this.newKey): super(key: newKey);
+  VideoPlayer(this.videoUrl, this.newKey, this.handleVideoCompleted): super(key: newKey);
 
   @override
-  _VideoPlayerState createState() => _VideoPlayerState();
+  VideoPlayerState createState() => VideoPlayerState();
 }
 
-class _VideoPlayerState extends State<VideoPlayer> {
+class VideoPlayerState extends State<VideoPlayer> {
   late VideoPlayerController _controller;
   late ChewieController _chewie;
 
@@ -26,10 +27,17 @@ class _VideoPlayerState extends State<VideoPlayer> {
     _controller = VideoPlayerController.network(url);
     _chewie = ChewieController(
       videoPlayerController: _controller,
-      // autoPlay: true,
-      autoInitialize: true,
+      autoPlay: true,
+      autoInitialize: false,
       aspectRatio: 16 / 9,
     );
+    void checkIsFinished() {
+        if(_controller.value.isInitialized && _controller.value.position == _controller.value.duration) {
+          widget.handleVideoCompleted();
+          _controller.removeListener(checkIsFinished); // prevents duplicate calls
+        }
+      }
+    _controller.addListener(checkIsFinished);
   }
 
   @override
