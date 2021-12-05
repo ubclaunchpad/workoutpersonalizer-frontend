@@ -13,7 +13,6 @@ class WorkoutEditor extends StatefulWidget {
 
 class WorkoutEditorState extends State<WorkoutEditor> {
   List<Exercise> chosenExercises = [];
-  List<String> tagList = [];
 
   Widget writeText() {
     String body;
@@ -42,31 +41,34 @@ class WorkoutEditorState extends State<WorkoutEditor> {
             children: <Widget>[
               writeText(),
               const Spacer(),
-              OutlinedButton(
-                onPressed: () {
-                  //TODO: implement adding break feature (WP-37)
-                  print('Received Click');
-                },
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
+              Padding(
+                padding: const EdgeInsets.only(top: 15, right: 20),
+                child: OutlinedButton(
+                  onPressed: () {
+                    //TODO: implement adding break feature (WP-37)
+                    print('Received Click');
+                  },
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                    backgroundColor: const Color(0xFF3CBFD4),
                   ),
-                  backgroundColor: const Color(0xFF3CBFD4),
-                ),
-                child: const Text(
-                  'SAVE',
-                  style: TextStyle(
-                    fontFamily: "BalooBhai2",
-                    fontWeight: FontWeight.w700,
-                    fontSize: 24,
-                    color: Colors.black,
+                  child: const Text(
+                    'SAVE',
+                    style: TextStyle(
+                      fontFamily: "BalooBhai2",
+                      fontWeight: FontWeight.w700,
+                      fontSize: 24,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
             ],
           ),
           Expanded(
-            child: DragTarget<Pair<Exercise, String>>(
+            child: DragTarget<Exercise>(
               builder: (BuildContext context, List<dynamic> accepted, List<dynamic> rejected) {
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(30, 20, 100, 90),
@@ -80,20 +82,19 @@ class WorkoutEditorState extends State<WorkoutEditor> {
                         ),
                     itemCount: chosenExercises.length,
                     itemBuilder: (context, index) {
-                      return Draggable<Pair<Exercise, String>>(
-                        data: Pair(chosenExercises[index], tagList[index]),
+                      return Draggable<Exercise>(
+                        data: chosenExercises[index],
                         hitTestBehavior: HitTestBehavior.translucent,
-                        feedback: createExerciseCardDraggable(chosenExercises, index, tagList),
-                        child: createExerciseCardEditor(chosenExercises, index, tagList),
+                        feedback: createExerciseCardDraggable(chosenExercises, index),
+                        child: createExerciseCardEditor(chosenExercises, index),
                       );
                     } 
                   ),
                 );
               },
-              onAccept: (Pair<Exercise, String> data) {
+              onAccept: (Exercise data) {
                 setState(() {
-                  chosenExercises.add(data.a);
-                  tagList.add(data.b);
+                  chosenExercises.add(data);
                 });
               },
             ),

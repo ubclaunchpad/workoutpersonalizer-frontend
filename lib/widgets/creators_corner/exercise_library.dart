@@ -27,27 +27,25 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
     String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
     String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
     allExercises = [
-      Exercise(1, "Exercise 1", "Exercise1 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png", dummyVideoUrl, 1),
-      Exercise(2, "Exercise 2", "Exercise2 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2+Thumbnail.png", dummyVideoUrl, 1),
-      Exercise(3, "Exercise 3", "Exercise3 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+Thumbnail.png", dummyVideoUrl, 10),
-      Exercise(4, "Exercise 4", "Exercise4 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4+Thumbnail.png", dummyVideoUrl, 60),
-      Exercise(5, "Exercise 5", "Exercise5 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+5+Thumbnail+.png", dummyVideoUrl, 90),
-      Exercise(6, "Exercise 6", "Exercise6 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+Thumbnail.png", dummyVideoUrl, 120),
-      Exercise(7, "Exercise 7", "Exercise7 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+Thumbnail.png", dummyVideoUrl, 191),
-      Exercise(8, "Exercise 8", "Exercise8 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8+Thumbnail.png", dummyVideoUrl, 1000),
-      Exercise(9, "Exercise 9", "Exercise9 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9+Thumbnail.png", dummyVideoUrl, 191),
-      Exercise(10, "Exercise 10", "Exercise10 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10+Thumbnail.png", dummyVideoUrl, 1000),
-      Exercise(11, "Exercise 11", "Exercise11 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+Thumbnail.png", dummyVideoUrl, 1000),
-      Exercise(12, "Exercise 12", "Exercise12 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12+Thumbnail.png", dummyVideoUrl, 1000),
-      Exercise(12, "Exercise 13", "Exercise13 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", dummyVideoUrl, 1000),
+      Exercise(1, "Crunch", "Exercise1 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+.mp4", 1, ["abs", "legs"]),
+      Exercise(2, "Flutter Kicks", "Exercise2 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2.mp4", 1, ["abs"]),
+      Exercise(3, "Scissor Kicks", "Exercise3 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3.mp4", 10, ["abs"]),
+      Exercise(4, "Ab Hold", "Exercise4 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4.mp4", 60, ["abs"]),
+      Exercise(5, "Push Ups", "Exercise5 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+5+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+5.mp4", 90, ["abs"]),
+      Exercise(6, "1 Arm 1 Leg Reach Out", "Exercise6 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6.mp4", 120, ["abs"]),
+      Exercise(7, "Plank & Crunch Left", "Exercise7 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7.mp4", 191, ["abs"]),
+      Exercise(8, "Plank & 3 Elbow Taps", "Exercise8 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8.mp4", 1000, ["abs"]),
+      Exercise(9, "Plank & Pike", "Exercise9 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9.mp4", 191, ["abs"]),
+      Exercise(10, "Elbow Plank", "Exercise10 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10.mp4", 1000, ["abs"]),
+      Exercise(11, "Side Plank Left", "Exercise11 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11.mp4", 1000, ["abs"]),
+      Exercise(12, "Side Plank Right", "Exercise12 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12.mp4", 1000, ["abs"]),
+      Exercise(12, "Lean Back & Russian Twist", "Exercise13 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13.mp4", 1000, ["abs"]),
     ];
     savedExercises = [
-      Exercise(1, "Exercise 1", "Exercise1 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
-      Exercise(2, "Exercise 2", "Exercise2 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
-      Exercise(3, "Exercise 3", "Exercise3 Description", dummyThumbnailUrl, dummyVideoUrl, 10),
+      Exercise(3, "Scissor Kicks", "Exercise3 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3.mp4", 10, ["abs"]),
+      Exercise(7, "Plank & Crunch Left", "Exercise7 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7.mp4", 191, ["abs"]),
+      Exercise(11, "Side Plank Left", "Exercise11 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11.mp4", 1000, ["abs"]),
     ];
-    allExercisesTagList = ["abs", "chest", "back", "legs", "arms", "abs", "legs", "chest", "chest", "legs", "abs", "abs", "abs"];
-    savedExercisesTagList = ["abs", "chest", "back"];
   }
 
   Widget buildGrid(BuildContext context, int cardsInRow, double leftPadding) {
@@ -69,18 +67,11 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
         padding: EdgeInsets.fromLTRB(leftPadding, 5.0, 50.0, 5.0),
         itemCount: exercises.length,
         itemBuilder: (BuildContext context, int index) {
-          List<String> tagList;
-          if (allPressed) {
-            tagList = allExercisesTagList;
-          } else {
-            tagList = savedExercisesTagList;
-          }
-
-          return Draggable<Pair<Exercise, String>>(
-            data: Pair(exercises[index], tagList[index]),
+          return Draggable<Exercise>(
+            data: exercises[index],
             hitTestBehavior: HitTestBehavior.translucent,
-            feedback: createExerciseCardDraggable(exercises, index, tagList),
-            child: createExerciseCard(exercises, index, tagList),
+            feedback: createExerciseCardDraggable(exercises, index),
+            child: createExerciseCard(exercises, index, allPressed),
           );
         }
       ),

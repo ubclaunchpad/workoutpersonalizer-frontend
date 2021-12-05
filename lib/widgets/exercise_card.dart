@@ -2,7 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/models/exercise.dart';
 
-Widget createExerciseCard(List<Exercise> exercises, int index, List<String> tagList) {
+String tagsString(List<String> tags) {
+  String output = "";
+  for (int i = 0; i < tags.length; i++) {
+    output = output + "#" + tags[i] + "  ";
+  }
+  return output;
+}
+
+Widget createExerciseCard(List<Exercise> exercises, int index, bool allExercisesButtonPressed) {
+  Icon heart;
+  if (allExercisesButtonPressed) {
+    heart = const Icon(
+      Icons.favorite_outline,
+    );
+  } else {
+    heart = const Icon(
+      Icons.favorite,
+      color: Color(0xFFEF3636),
+    );
+  }
+
   return Card(
     semanticContainer: true,
     clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -40,9 +60,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index, List<String> tagL
                   highlightColor: Colors.transparent,
                   hoverColor: Colors.transparent,
                   splashColor: Colors.transparent,
-                  icon: const Icon(
-                    Icons.favorite_outline,
-                  ),
+                  icon: heart
                 ),
               ),
             ),
@@ -53,7 +71,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index, List<String> tagL
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              '#' + tagList[index],
+              tagsString(exercises[index].tags),
               style: exerciseCardTagStyle,
             ),
           ),
@@ -63,7 +81,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index, List<String> tagL
   );
 }
 
-Widget createExerciseCardEditor(List<Exercise> exercises, int index, List<String> tagList) {
+Widget createExerciseCardEditor(List<Exercise> exercises, int index) {
   return Card(
     semanticContainer: true,
     clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -114,7 +132,7 @@ Widget createExerciseCardEditor(List<Exercise> exercises, int index, List<String
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              '#' + tagList[index],
+              tagsString(exercises[index].tags),
               style: exerciseCardTagStyle,
             ),
           ),
@@ -124,7 +142,7 @@ Widget createExerciseCardEditor(List<Exercise> exercises, int index, List<String
   );
 }
 
-Widget createExerciseCardDraggable(List<Exercise> exercises, int index, List<String> tagList) {
+Widget createExerciseCardDraggable(List<Exercise> exercises, int index) {
   return Material(
     child: Container(
       width: 240,
@@ -158,7 +176,7 @@ Widget createExerciseCardDraggable(List<Exercise> exercises, int index, List<Str
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  '#' + tagList[index],
+                  tagsString(exercises[index].tags),
                   style: exerciseCardTagStyle,
                 ),
               ),

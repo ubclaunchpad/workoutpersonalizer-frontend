@@ -15,8 +15,8 @@ class Exercise {
     this.description, 
     this.thumbnailSrc, 
     this.videoSrc, 
-    this.length
-    this.tags
+    this.length,
+    this.tags,
   );
 
   factory Exercise.fromJson(Map<String, dynamic> json) {

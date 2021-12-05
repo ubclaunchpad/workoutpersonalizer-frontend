@@ -46,12 +46,15 @@ class CustomTabBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Container(
-            width: 40,
-            height: 40,
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Color(0xFF9D9494),
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color(0xFF9D9494),
+              ),
             ),
           ),
         ],
