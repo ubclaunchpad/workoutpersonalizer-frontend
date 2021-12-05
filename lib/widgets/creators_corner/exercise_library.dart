@@ -27,23 +27,26 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
     String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
     String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
     allExercises = [
-      Exercise(1, "Exercise 1", "Exercise1 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
-      Exercise(2, "Exercise 2", "Exercise2 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
-      Exercise(3, "Exercise 3", "Exercise3 Description", dummyThumbnailUrl, dummyVideoUrl, 10),
-      Exercise(4, "Exercise 4", "Exercise4 Description", dummyThumbnailUrl, dummyVideoUrl, 60),
-      Exercise(5, "Exercise 5", "Exercise5 Description", dummyThumbnailUrl, dummyVideoUrl, 90),
-      Exercise(6, "Exercise 6", "Exercise6 Description", dummyThumbnailUrl, dummyVideoUrl, 120),
-      Exercise(7, "Exercise 7", "Exercise7 Description", dummyThumbnailUrl, dummyVideoUrl, 191),
-      Exercise(8, "Exercise 8", "Exercise8 Description", dummyThumbnailUrl, dummyVideoUrl, 1000),
-      Exercise(9, "Exercise 9", "Exercise9 Description", dummyThumbnailUrl, dummyVideoUrl, 191),
-      Exercise(10, "Exercise 10", "Exercise10 Description", dummyThumbnailUrl, dummyVideoUrl, 1000),
+      Exercise(1, "Exercise 1", "Exercise1 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png", dummyVideoUrl, 1),
+      Exercise(2, "Exercise 2", "Exercise2 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2+Thumbnail.png", dummyVideoUrl, 1),
+      Exercise(3, "Exercise 3", "Exercise3 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+Thumbnail.png", dummyVideoUrl, 10),
+      Exercise(4, "Exercise 4", "Exercise4 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4+Thumbnail.png", dummyVideoUrl, 60),
+      Exercise(5, "Exercise 5", "Exercise5 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+5+Thumbnail+.png", dummyVideoUrl, 90),
+      Exercise(6, "Exercise 6", "Exercise6 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+Thumbnail.png", dummyVideoUrl, 120),
+      Exercise(7, "Exercise 7", "Exercise7 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+Thumbnail.png", dummyVideoUrl, 191),
+      Exercise(8, "Exercise 8", "Exercise8 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8+Thumbnail.png", dummyVideoUrl, 1000),
+      Exercise(9, "Exercise 9", "Exercise9 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9+Thumbnail.png", dummyVideoUrl, 191),
+      Exercise(10, "Exercise 10", "Exercise10 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10+Thumbnail.png", dummyVideoUrl, 1000),
+      Exercise(11, "Exercise 11", "Exercise11 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+Thumbnail.png", dummyVideoUrl, 1000),
+      Exercise(12, "Exercise 12", "Exercise12 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12+Thumbnail.png", dummyVideoUrl, 1000),
+      Exercise(12, "Exercise 13", "Exercise13 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", dummyVideoUrl, 1000),
     ];
     savedExercises = [
       Exercise(1, "Exercise 1", "Exercise1 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
       Exercise(2, "Exercise 2", "Exercise2 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
       Exercise(3, "Exercise 3", "Exercise3 Description", dummyThumbnailUrl, dummyVideoUrl, 10),
     ];
-    allExercisesTagList = ["abs", "chest", "back", "legs", "arms", "abs", "legs", "chest", "chest", "legs"];
+    allExercisesTagList = ["abs", "chest", "back", "legs", "arms", "abs", "legs", "chest", "chest", "legs", "abs", "abs", "abs"];
     savedExercisesTagList = ["abs", "chest", "back"];
   }
 
@@ -60,7 +63,7 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: cardsInRow,
-            childAspectRatio: 8 / 7,
+            childAspectRatio: 1.1,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
         padding: EdgeInsets.fromLTRB(leftPadding, 5.0, 50.0, 5.0),

@@ -20,9 +20,10 @@ class _WorkoutViewer extends State<WorkoutViewer> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     return Column(
       children: <Widget>[
+        // TODO: check margin
         Stack(
           children: <Widget>[
             Container(
@@ -45,7 +46,6 @@ class _WorkoutViewer extends State<WorkoutViewer> {
                 indent: 35,
                 endIndent: 175,
                 thickness: 0.5,
-                //height: 100,
               ),
             ),
             Container(
@@ -65,7 +65,7 @@ class _WorkoutViewer extends State<WorkoutViewer> {
         ),
         Container(
           color: Colors.white,
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.4,
           child: AspectRatio(

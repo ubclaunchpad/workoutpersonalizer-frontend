@@ -23,8 +23,8 @@ Widget createExerciseCard(List<Exercise> exercises, int index, List<String> tagL
           children: <Widget>[
             AspectRatio(
               aspectRatio: 1.9,
-              child: Image.asset(
-                'images/pushup.jpg',
+              child: Image.network(
+                exercises[index].thumbnailSrc,
                 fit: BoxFit.cover,
               ),
             ),
@@ -84,8 +84,8 @@ Widget createExerciseCardEditor(List<Exercise> exercises, int index, List<String
           children: <Widget>[
             AspectRatio(
               aspectRatio: 1.9,
-              child: Image.asset(
-                'images/pushup.jpg',
+              child: Image.network(
+                exercises[index].thumbnailSrc,
                 fit: BoxFit.cover,
               ),
             ),
@@ -146,10 +146,10 @@ Widget createExerciseCardDraggable(List<Exercise> exercises, int index, List<Str
           ),
           AspectRatio(
             aspectRatio: 1.9,
-            child: Image.asset(
-              'images/pushup.jpg',
-              fit: BoxFit.cover,
-            ),
+            child: Image.network(
+                exercises[index].thumbnailSrc,
+                fit: BoxFit.cover,
+              ),
           ),
           Container(
             color: const Color(0xFFF3EDED),

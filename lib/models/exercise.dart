@@ -7,6 +7,7 @@ class Exercise {
   final String thumbnailSrc;
   final String videoSrc;
   final int length; // units?
+  final List<String> tags;
 
   Exercise(
     this.id,
@@ -15,6 +16,7 @@ class Exercise {
     this.thumbnailSrc, 
     this.videoSrc, 
     this.length
+    this.tags
   );
 
   factory Exercise.fromJson(Map<String, dynamic> json) {
@@ -25,6 +27,7 @@ class Exercise {
       json['thumbnailSrc'],
       json['videoSrc'],
       json['length'],
+      json['tags'],
     );
   }
 }
