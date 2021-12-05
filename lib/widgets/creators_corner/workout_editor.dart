@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/models/exercise.dart';
 import 'package:workoutpersonalizer_frontend/models/pair.dart';
-import 'package:workoutpersonalizer_frontend/widgets/creators_corner/exercise_card.dart';
+import 'package:workoutpersonalizer_frontend/widgets/exercise_card.dart';
 
 class WorkoutEditor extends StatefulWidget {
   const WorkoutEditor({Key? key}) : super(key: key);
