@@ -53,7 +53,11 @@ class _WorkoutCardsState extends State<WorkoutCards> {
         child: Text(
             "It looks like you haven't created any workouts yet."
             "Click the top right plus icon to get started.",
+<<<<<<< HEAD
             style: secondaryHeadingStyle,
+=======
+            style: h3
+>>>>>>> 1d6620d (Added styling to My Account page)
         )
       );
     }

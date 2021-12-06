@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/widgets/my_account/change_password_form.dart';
 import 'package:workoutpersonalizer_frontend/widgets/my_account/edit_account_form.dart';
 
@@ -16,7 +17,7 @@ class MyAccountPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Column(children: const [
-                Text("Edit Account Details"),
+                Text("Edit Account Details", style: h1),
                 EditAccountForm()
               ])
             )
@@ -25,7 +26,7 @@ class MyAccountPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Column(children: const [
-                Text("Change Password"),
+                Text("Change Password", style: h1),
                 ChangePasswordForm()
               ])
             ),

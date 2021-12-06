@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/models/user.dart';
+import 'package:workoutpersonalizer_frontend/widgets/my_account/custom_form_field.dart';
 
 class ChangePasswordForm extends StatefulWidget {
   const ChangePasswordForm({Key? key}) : super(key: key);
@@ -15,14 +17,6 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
   User defaultUser =
       User("123", "Rob", "Boss", "robboss123", "robboss123@gmail.com");
 
-  // TODO: Properly validate fields (WP-71)
-  String? _validateField(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please fill out this field';
-    }
-    return null;
-  }
-
   // TODO: Fix "No Overlay widget exists above EditableText" issue (WP-70)
   @override
   Widget build(BuildContext context) {
@@ -31,33 +25,12 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("Old Password"),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Enter your old password',
-              ),
-              validator: _validateField),
-          ),
-          Text("New Password"),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Enter your new password',
-              ),
-              validator: _validateField),
-          ),
-          Text("Confirm New Password"),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                hintText: 'Re-enter your new password',
-              ),
-              validator: _validateField),
-          ),
+          const Text("Old Password", style: h2),
+          const CustomFormField(hintText: "Enter your old password"),
+          const Text("New Password", style: h2),
+          const CustomFormField(hintText: "Enter your new password"),
+          const Text("Confirm New Password", style: h2),
+          const CustomFormField(hintText: "Re-enter your new password"),
           ElevatedButton(
             onPressed: () {
               // Validate will return true if the form is valid, or false if
@@ -66,7 +39,8 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
                 // Process data.
               }
             },
-            child: const Text('Submit'),
+            child: const Text('SAVE', style: h2),
+            style: ElevatedButton.styleFrom(primary: turquoise),
           ),
         ],
       ),

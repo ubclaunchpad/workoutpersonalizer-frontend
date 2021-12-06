@@ -125,4 +125,5 @@ const TextStyle addExercisePopupMenuItemTextStyle = TextStyle(
   color: Colors.white,
 );
 const Color orange = Color(0xFFFFA101);
+const Color lightOrange = Color(0xFFFFCD78);
 const Color turquoise = Color(0xFF3CBFD4);

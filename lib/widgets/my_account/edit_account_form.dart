@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/models/user.dart';
+import 'package:workoutpersonalizer_frontend/widgets/my_account/custom_form_field.dart';
 
 class EditAccountForm extends StatefulWidget {
   const EditAccountForm({Key? key}) : super(key: key);
@@ -15,47 +17,33 @@ class _EditAccountFormState extends State<EditAccountForm> {
   User defaultUser =
       User("123", "Rob", "Boss", "robboss123", "robboss123@gmail.com");
 
-  // TODO: Properly validate fields (WP-71)
-  String? _validateField(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Please fill out this field';
-    }
-    return null;
-  }
-
   Widget firstAndLastName() {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
-      child: Row(children: [
-        Expanded(
-            child: Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Column(
-                  children: [
-                    const Text("First Name"),
-                    TextFormField(
-                        initialValue: defaultUser.firstName,
-                        decoration: const InputDecoration(
-                          hintText: 'Enter your first name',
-                        ),
-                        validator: _validateField),
-                  ],
-                ))),
-        Expanded(
-            child: Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: Column(
-                  children: [
-                    const Text("Last Name"),
-                    TextFormField(
-                        initialValue: defaultUser.lastName,
-                        decoration: const InputDecoration(
-                          hintText: 'Enter your last name',
-                        ),
-                        validator: _validateField),
-                  ],
-                ))),
-    ]));
+    return Row(children: [
+      Expanded(
+          child: Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: Column(
+                children: [
+                  const Text("First Name", style: h2),
+                  CustomFormField(
+                    initialValue: defaultUser.firstName,
+                    hintText: "Enter your first name"
+                  ),
+                ],
+              ))),
+      Expanded(
+          child: Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Column(
+                children: [
+                  const Text("Last Name", style: h2),
+                  CustomFormField(
+                    initialValue: defaultUser.lastName,
+                    hintText: "Enter your last name"
+                  ),
+                ],
+              ))),
+    ]);
   }
 
   // TODO: Fix "No Overlay widget exists above EditableText" issue (WP-70)
@@ -67,25 +55,15 @@ class _EditAccountFormState extends State<EditAccountForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           firstAndLastName(),
-          Text("Email"),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: TextFormField(
-              initialValue: defaultUser.email,
-              decoration: const InputDecoration(
-                hintText: 'Enter your email',
-              ),
-              validator: _validateField),
+          const Text("Email", style: h2),
+          CustomFormField(
+            initialValue: defaultUser.email,
+            hintText: "Enter your email"
           ),
-          Text("Username"),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 16.0),
-            child: TextFormField(
-              initialValue: defaultUser.username,
-              decoration: const InputDecoration(
-                hintText: 'Enter your username',
-              ),
-              validator: _validateField),
+          const Text("Username", style: h2),
+          CustomFormField(
+            initialValue: defaultUser.username,
+            hintText: "Enter your username"
           ),
           ElevatedButton(
             onPressed: () {
@@ -95,7 +73,8 @@ class _EditAccountFormState extends State<EditAccountForm> {
                 // Process data.
               }
             },
-            child: const Text('Save'),
+            child: const Text('SAVE', style: h2),
+            style: ElevatedButton.styleFrom(primary: turquoise),
           ),
         ],
       ),
