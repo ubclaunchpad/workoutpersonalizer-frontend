@@ -117,6 +117,7 @@ class ExplorePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(children: <Widget>[
       SideLayout(),
+      //TODO: fix overflowing issues with small window size (WP-74)
       const VerticalDivider(
         color: Color(0xFFDADADA),
         thickness: 2,

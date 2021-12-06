@@ -179,6 +179,7 @@ class ExerciseDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: Fix styling of dialog (WP-75)
     return Dialog(
       child: Container(
           height: 600,
@@ -191,7 +192,7 @@ class ExerciseDialog extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ListTile(
-                  title: Text(exercise.name, style: modalTitle),
+                  title: Text(exercise.name, style: exerciseDialogTitleStyle),
                   trailing: PopupMenuButton(
                     onSelected: (value) {
                       addToWorkouts(value);
@@ -231,21 +232,25 @@ class ExerciseDialog extends StatelessWidget {
                   ),
                 ),
                 const Padding(
-                    padding: EdgeInsets.all(8),
+                    padding:
+                        EdgeInsets.only(top: 8, left: 8, right: 8, bottom: 0),
                     child: Align(
                         alignment: Alignment.centerLeft,
-                        child: Text('Description',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20)))),
+                        child:
+                            Text('Description', style: secondaryHeadingStyle))),
                 Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding: const EdgeInsets.only(top: 0, left: 8, right: 8),
                     child: Align(
                         alignment: Alignment.centerLeft,
                         child: Text(exercise.description,
-                            style: const TextStyle(
-                                color: Colors.black, fontSize: 15)))),
+                            style: exerciseDialogDescriptionContentStyle))),
+                Expanded(
+                    child: Padding(
+                        padding: EdgeInsets.only(left: 8),
+                        child: Align(
+                            alignment: Alignment.bottomLeft,
+                            child: Text(tagsString(exercise.tags),
+                                style: exerciseDialogTagsStyle))))
               ],
             ),
           )),

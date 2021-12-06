@@ -7,8 +7,6 @@ const TextStyle navBarItemStyle = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
-const TextStyle modalTitle =
-    TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold);
 const TextStyle primaryHeadingStyle = TextStyle(
   fontFamily: "BalooBhai2",
   fontSize: 24,
@@ -90,4 +88,25 @@ const TextStyle workoutEditorStyle = TextStyle(
   fontWeight: FontWeight.w500,
   fontSize: 24,
   color: Color(0xFF464646),
+);
+
+const TextStyle exerciseDialogTitleStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w600,
+  fontSize: 24,
+  color: Color(0xFF464646),
+);
+
+const TextStyle exerciseDialogDescriptionContentStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w500,
+  fontSize: 14,
+  color: Colors.black,
+);
+
+const TextStyle exerciseDialogTagsStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+  color: Colors.black,
 );
