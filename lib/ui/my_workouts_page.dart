@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/widgets/my_workouts/workout_cards.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class MyWorkoutsPage extends StatelessWidget {
   const MyWorkoutsPage({Key? key}) : super(key: key);
@@ -15,12 +16,15 @@ class MyWorkoutsPage extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             title: const Text(
               'Workout Library',
-              style: TextStyle(fontSize: 20)
+              style: h1
             ),
-            trailing: OutlinedButton(
+            trailing: IconButton(
+              icon: const Icon(
+                Icons.add_to_photos_outlined,
+                color: turquoise
+              ),
               onPressed: () {},
-              child: const Text('Create New Workout'),
-            )
+            ),
           ),
           const SizedBox(height: 10),
           const WorkoutCards(),
@@ -29,7 +33,7 @@ class MyWorkoutsPage extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             title: Text(
               'Exercise Library',
-              style: TextStyle(fontSize: 20)
+              style: h1
             ),
           ),
           const SizedBox(height: 10),
