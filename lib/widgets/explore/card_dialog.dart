@@ -13,7 +13,7 @@ class ExerciseDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Fix styling of dialog (WP-75)
+    //TODO: Fix styling of dialog (https://ubclaunchpad.atlassian.net/browse/WP-75)
     return Dialog(
       child: Container(
           height: 600,
