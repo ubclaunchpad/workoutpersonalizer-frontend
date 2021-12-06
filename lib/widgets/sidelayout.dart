@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class SideLayout extends StatefulWidget {
   @override
@@ -7,16 +8,14 @@ class SideLayout extends StatefulWidget {
 
 class SideLayoutState extends State<SideLayout> {
   Map<String, bool> values = {
-    'chest': false,
-    'back': false,
-    'arms': false,
-    'shoulders': false,
-    'legs': false,
-    'calves': false,
-    'abs': false,
-    'neck': false,
-    'hips': false,
-    'tummy': false
+    'Chest': false,
+    'Back': false,
+    'Arms': false,
+    'Shoulders': false,
+    'Legs': false,
+    'Calves': false,
+    'Abs': false,
+    'Neck': false,
   };
 
   @override
@@ -28,25 +27,27 @@ class SideLayoutState extends State<SideLayout> {
           child: Column(
             children: [
               Row(
-                children: [
+                children: const [
                   CircleAvatar(
-                    backgroundColor: Theme.of(context).primaryColor,
-                    child:
-                        const Icon(Icons.airline_seat_legroom_extra, size: 30),
+                    backgroundColor: Color(0xFFFFCD78),
+                    child: Icon(Icons.airline_seat_legroom_extra,
+                        size: 30, color: Colors.black),
                   ),
-                  const Text(
+                  Text(
                     " Muscle Groups",
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+                    style: filterHeaderStyle,
                   ),
                 ],
               ),
               Expanded(
                 child: ListView(
+                  controller: ScrollController(),
                   children: values.keys.map((String key) {
                     return CheckboxListTile(
-                      title: Text(key),
+                      contentPadding: const EdgeInsets.all(0),
+                      dense: true,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      title: Text(key, style: filterItemStyle),
                       value: values[key],
                       onChanged: (bool? value) {
                         if (value != null) {

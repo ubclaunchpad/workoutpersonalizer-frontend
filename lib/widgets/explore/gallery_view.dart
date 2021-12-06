@@ -46,6 +46,7 @@ class _GalleryState extends State<Gallery> {
     //TODO: figure out useEffect but in flutter to get rid of duplicate list (WP-55)
     // exercisesToDisplay = exerciseList;
     return GridView.builder(
+        controller: ScrollController(),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
             childAspectRatio: 8 / 7,

@@ -4,14 +4,6 @@ import 'package:workoutpersonalizer_frontend/widgets/sidelayout.dart';
 import '../widgets/explore/gallery_view.dart';
 
 class ExplorePage extends StatelessWidget {
-  static const List<String> _exerciseList = [
-    'Pushup',
-    'Crunch',
-    'Neck Circles',
-    'Hamstring Stretch',
-    'Plank',
-    'Hip Flexor Stretch',
-  ];
   static List<Exercise> allExercises = [
     Exercise(
         1,
@@ -118,31 +110,19 @@ class ExplorePage extends StatelessWidget {
         1000,
         ["abs"]),
   ];
-  static const List<String> _descriptionList = [
-    'Pushup Description',
-    'Crunch Description',
-    'Neck Circles Description',
-    'Hamstring Stretch Description',
-    'Plank Description',
-    'Hip Flexor Stretch Description',
-  ];
-  static const List<String> _tagList = [
-    'chest',
-    'abs',
-    'neck',
-    'legs',
-    'abs',
-    'legs',
-  ];
+
   const ExplorePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(children: <Widget>[
       SideLayout(),
-      const VerticalDivider(),
+      const VerticalDivider(
+        color: Color(0xFFDADADA),
+        thickness: 2,
+      ),
       Expanded(
-          flex: 7,
+          flex: 6,
           child: Container(
               padding: const EdgeInsets.all(20),
               child:

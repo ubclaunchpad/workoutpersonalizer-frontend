@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 const TextStyle navBarItemStyle = TextStyle(
-  fontSize: 15,
-  color: Colors.black,
+  fontFamily: "Baloo2",
+  fontSize: 18,
+  color: Color(0xFF31525B),
+  fontWeight: FontWeight.w500,
 );
 
 const TextStyle modalTitle =
