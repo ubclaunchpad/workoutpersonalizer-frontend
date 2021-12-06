@@ -21,12 +21,12 @@ class _WorkoutCardsState extends State<WorkoutCards> {
   }
 
   Widget _buildWorkoutCards() {
-    // TODO: Get actual workouts from backend (WP-55)
+    // TODO: Get actual workouts from backend (ubclaunchpad.atlassian.net/browse/WP-55)
     final workouts = [
       Workout(
           "TestId",
           "b70820ae-d0a3-411b-9217-0bf2370e7139",
-          "15 Minutes to Intense Abs",
+          "8 Minutes to Intense Abs",
           "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png",
           [Exercise()],
           Duration(seconds: 510),
@@ -36,7 +36,7 @@ class _WorkoutCardsState extends State<WorkoutCards> {
       Workout(
           "TestId",
           "b70820ae-d0a3-411b-9217-0bf2370e7139",
-          "5 Minute Stretch",
+          "4 Minute Stretch",
           "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png",
           [Exercise()],
           Duration(seconds: 240),
@@ -58,7 +58,7 @@ class _WorkoutCardsState extends State<WorkoutCards> {
         )
       );
     }
-    // TODO: Build _workoutCards on demand (WP-53)
+    // TODO: Build _workoutCards on demand (ubclaunchpad.atlassian.net/browse/WP-53)
     return Scrollbar(
         isAlwaysShown: true,
         controller: _scrollController,

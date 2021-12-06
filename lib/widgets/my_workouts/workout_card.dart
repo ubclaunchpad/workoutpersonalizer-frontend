@@ -7,7 +7,7 @@ class WorkoutCard extends StatelessWidget {
   final Workout workout;
   const WorkoutCard({Key? key, required this.workout}) : super(key: key);
 
-  // TODO: Implement play video, edit and delete buttons (WP-60)
+  // TODO: Implement play video, edit and delete buttons (ubclaunchpad.atlassian.net/browse/WP-60)
   @override
   Widget build(BuildContext context) {
     return SizedBox(

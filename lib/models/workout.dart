@@ -23,6 +23,14 @@ class Workout {
       this.deletionDate);
 
   String getFormattedTotalWorkoutTime() {
-    return totalWorkoutTime.toString().split('.').first.padLeft(2, "0");
+    List<String> totalWorkoutTimeSplit =
+        totalWorkoutTime.toString().split('.').first.split(':');
+    String totalWorkoutTimeFormatted = "";
+    String hours = totalWorkoutTimeSplit[0];
+    String minutes = int.parse(totalWorkoutTimeSplit[1]).toString();
+    if (hours != "0") {
+      totalWorkoutTimeFormatted = hours + " hr";
+    }
+    return totalWorkoutTimeFormatted + minutes + " min";
   }
 }

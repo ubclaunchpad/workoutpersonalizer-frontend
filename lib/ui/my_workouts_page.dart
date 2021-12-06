@@ -32,12 +32,12 @@ class MyWorkoutsPage extends StatelessWidget {
           const ListTile(
             contentPadding: EdgeInsets.zero,
             title: Text(
-              'Exercise Library',
+              'Saved Exercises',
               style: h1
             ),
           ),
           const SizedBox(height: 10),
-          // TODO: Add exercise cards (WP-58)
+          // TODO: Add exercise cards (ubclaunchpad.atlassian.net/browse/WP-58)
       ],)
     );
   }
