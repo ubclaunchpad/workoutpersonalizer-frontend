@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
         fontFamily: 'BalooBhai2',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // builder: (_, child) => AppView(),
       home: AppView(),
     );
   }

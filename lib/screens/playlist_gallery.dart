@@ -20,7 +20,7 @@ class PlaylistGallery extends StatelessWidget {
     return Scaffold(
         drawer: Sidebar(),
         appBar: AppBar(
-          title: const Text('Playlist gallery'),
+          title: const Text('Playlist Gallery'),
         ),
         body:
             const Gallery(exerciseList: _exerciseList, playlistGallery: true));

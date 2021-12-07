@@ -28,14 +28,14 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
     String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
     String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
     exercises = [
-      Exercise(1, "Exercise 1", "Exercise1 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1.mp4", 44),
-      Exercise(2, "Exercise 2", "Exercise2 Description", dummyThumbnailUrl, dummyVideoUrl, 1),
-      Exercise(3, "Exercise 3", "Exercise3 Description", dummyThumbnailUrl, dummyVideoUrl, 10),
-      Exercise(4, "Exercise 4", "Exercise4 Description", dummyThumbnailUrl, dummyVideoUrl, 60),
-      Exercise(5, "Exercise 5", "Exercise5 Description", dummyThumbnailUrl, dummyVideoUrl, 90),
-      Exercise(6, "Exercise 6", "Exercise6 Description", dummyThumbnailUrl, dummyVideoUrl, 120),
-      Exercise(7, "Exercise 7", "Exercise7 Description", dummyThumbnailUrl, dummyVideoUrl, 191),
-      Exercise(8, "Exercise 8", "Exercise8 Description", dummyThumbnailUrl, dummyVideoUrl, 1000),
+      Exercise(1, "Side to Side Stretch", "Stretch from side to side!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1.mp4", 44),
+      Exercise(2, "Arm Circles", "Circular arms!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2.mp4", 30),
+      Exercise(3, "Neck Circles", "Rotational neck circles", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3+.mp4", 30),
+      Exercise(4, "Hip Flexor Right", "Stretch your right hip flexor!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+4+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+4+.mp4", 30),
+      Exercise(5, "Ham String Stretch", "Let's stretch those hamstrings!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+5+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+5+.mp4", 30),
+      Exercise(6, "Pigeon Stretch", "This is the pigeon stretch!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6+.mp4", 30),
+      Exercise(7, "Hip Flexor Left", "Stretch your left hip flexor!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+7+.mp4", 30),
+      Exercise(8, "Tummy Stretch", "Stretch your tummy!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+8+Thumbnail.png", "https://s3.console.aws.amazon.com/s3/object/teamworkoutplatform?region=us-west-2&prefix=Clip+8.mp4", 30),
     ];
   }
 
@@ -138,7 +138,7 @@ Widget workoutTitle() {
   return Container(
     alignment: Alignment.centerLeft,
     child: const Text(
-      'Title of Workout',
+      '5 Minute Stetch',
       textAlign: TextAlign.left,
       style: TextStyle(
         fontWeight: FontWeight.bold,
