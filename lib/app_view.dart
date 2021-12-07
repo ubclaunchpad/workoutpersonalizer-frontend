@@ -21,7 +21,7 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
   List<ContentView> contentViews = [
     ContentView(
       tab: CustomTab(title: 'My Workouts'),
-      content: MyWorkoutsPage(),
+      content: const MyWorkoutsPage(),
     ),
     ContentView(
       tab: CustomTab(title: 'Explore'),
@@ -64,22 +64,24 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
   }
 
   Widget desktopView() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTabBar(
-          controller: tabController,
-          tabs: contentViews.map((e) => e.tab).toList(),
-        ),
-        SizedBox(
-          height: screenHeight * 0.85,
-          child: TabBarView(
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomTabBar(
             controller: tabController,
-            children: contentViews.map((e) => e.content).toList(),
+            tabs: contentViews.map((e) => e.tab).toList(),
           ),
-        ),
-      ],
+          SizedBox(
+            height: screenHeight * 0.85,
+            child: TabBarView(
+              controller: tabController,
+              children: contentViews.map((e) => e.content).toList(),
+            ),
+          ),
+        ],
+      )
     );
   }
 }

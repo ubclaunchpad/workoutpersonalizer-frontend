@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Workout Personalizer',
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        fontFamily: 'BalooBhai2',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // builder: (_, child) => AppView(),
