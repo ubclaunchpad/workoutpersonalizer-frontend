@@ -6,19 +6,24 @@ import 'package:workoutpersonalizer_frontend/widgets/creators_corner/workout_vie
 class CreatorsCornerPage extends StatelessWidget {
   const CreatorsCornerPage({Key? key}) : super(key: key);
 
+  static const int flexScaleWorkoutEditor = 4;
+  static const int flexScaleWorkoutViewerAndExerciseLibrary = 6;
+  static const int flexScaleWorkoutViewer = 4;
+  static const int flexScaleExerciseLibrary = 6;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         Expanded(
-          flex: 6,
+          flex: flexScaleWorkoutViewerAndExerciseLibrary,
           child: Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 const Expanded(
-                  flex: 4,
+                  flex: flexScaleWorkoutViewer,
                   child: WorkoutViewer(),
                 ),
                 const VerticalDivider(
@@ -26,7 +31,7 @@ class CreatorsCornerPage extends StatelessWidget {
                     thickness: 2,
                 ),
                 Expanded(
-                  flex: 6,
+                  flex: flexScaleExerciseLibrary,
                   child: ExerciseLibrary(),
                 ),
               ],
@@ -34,7 +39,7 @@ class CreatorsCornerPage extends StatelessWidget {
           ),
         ),
         const Expanded(
-          flex: 4,
+          flex: flexScaleWorkoutEditor,
           child: WorkoutEditor(),
         ),
       ],

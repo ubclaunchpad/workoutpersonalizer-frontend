@@ -89,3 +89,5 @@ const TextStyle workoutEditorStyle = TextStyle(
   fontSize: 24,
   color: Color(0xFF464646),
 );
+
+const Color orange = Color(0xFFFFA101);

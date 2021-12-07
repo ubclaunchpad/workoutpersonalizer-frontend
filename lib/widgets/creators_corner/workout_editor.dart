@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/models/exercise.dart';
-import 'package:workoutpersonalizer_frontend/models/pair.dart';
 import 'package:workoutpersonalizer_frontend/widgets/exercise_card.dart';
 
 class WorkoutEditor extends StatefulWidget {
@@ -34,9 +33,10 @@ class WorkoutEditorState extends State<WorkoutEditor> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFFFA101),
+      color: orange,
       child: Column(
         children: <Widget>[
+          // TODO: Fix overflow problems (WP-80)
           Row(
             children: <Widget>[
               writeText(),

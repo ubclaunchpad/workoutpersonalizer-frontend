@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class CustomTabBar extends StatelessWidget {
   CustomTabBar({required this.controller, required this.tabs});
@@ -15,7 +16,7 @@ class CustomTabBar extends StatelessWidget {
             ? 0.4
             : 0.45;
     return Container(
-      color: const Color(0xFFFFA101),
+      color: orange,
       child: Row(
         children: <Widget>[
           Container(
@@ -60,24 +61,5 @@ class CustomTabBar extends StatelessWidget {
         ],
       ),
     );
-    
-    // return Padding(
-    //   padding: EdgeInsets.only(left: screenWidth * 0.05),
-    //   child: SizedBox(
-    //     width: screenWidth * tabBarScaling,
-    //     child: Theme(
-    //       data: ThemeData(
-    //         highlightColor: Colors.transparent,
-    //         splashColor: Colors.transparent,
-    //         hoverColor: Colors.transparent,
-    //       ),
-    //       child: TabBar(
-    //         controller: controller,
-    //         tabs: tabs,
-    //         indicatorColor: const Color(0xFFFAE6B1),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }

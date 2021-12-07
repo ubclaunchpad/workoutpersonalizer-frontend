@@ -21,9 +21,9 @@ class _WorkoutViewer extends State<WorkoutViewer> {
 
   @override
   Widget build(BuildContext context) { 
+    // TODO: Bottom Overflow (probable cause is video player) (WP-77)
     return Column(
       children: <Widget>[
-        // TODO: check margin
         Stack(
           children: <Widget>[
             Container(
@@ -34,7 +34,7 @@ class _WorkoutViewer extends State<WorkoutViewer> {
                 style: const TextStyle(
                   fontFamily: "BalooBhai2",
                   fontSize: 32,
-                  color: Color(0xFF000000),
+                  color: Colors.black,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -56,7 +56,7 @@ class _WorkoutViewer extends State<WorkoutViewer> {
                 style: TextStyle(
                   fontFamily: "BalooBhai2",
                   fontSize: 28,
-                  color: Color(0xFF000000),
+                  color: Colors.black,
                   fontWeight: FontWeight.w100,
                 ),
               ),
@@ -66,14 +66,19 @@ class _WorkoutViewer extends State<WorkoutViewer> {
         Container(
           color: Colors.white,
           alignment: Alignment.topCenter,
+          // TODO: Fix width and height pixel overflows (WP-77)
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 0.4,
+          // TODO: Update video to be the actual workout video (WP-82)
           child: AspectRatio(
-              aspectRatio:
-                  16 / 9, // TODO: should be the aspect ratio of the video
-              child: ChewieListItem(
-                  videoPlayerController: VideoPlayerController.network(
-                      'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'))),
+            aspectRatio:
+              16 / 9, 
+            child: ChewieListItem(
+              videoPlayerController: VideoPlayerController.network(
+                'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+              ), 
+            ),
+          ),
         ),
       ],
     );

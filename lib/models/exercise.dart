@@ -6,7 +6,9 @@ class Exercise {
   final String description;
   final String thumbnailSrc;
   final String videoSrc;
-  final int length; // units?
+  final int length; // in seconds
+  final DateTime createdAt;
+  final DateTime updatedAt;
   final List<String> tags;
 
   Exercise(
@@ -16,17 +18,21 @@ class Exercise {
     this.thumbnailSrc, 
     this.videoSrc, 
     this.length,
+    this.createdAt,
+    this.updatedAt,
     this.tags,
   );
 
   factory Exercise.fromJson(Map<String, dynamic> json) {
     return Exercise(
       json['id'],
-      json['title'],      
+      json['name'],      
       json['description'],
       json['thumbnailSrc'],
       json['videoSrc'],
       json['length'],
+      json['createdAt'],
+      json['updatedAt'],
       json['tags'],
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/models/exercise.dart';
-import 'package:workoutpersonalizer_frontend/models/pair.dart';
 import 'package:workoutpersonalizer_frontend/widgets/exercise_card.dart';
 import 'package:workoutpersonalizer_frontend/widgets/creators_corner/filter_list.dart';
 
@@ -24,31 +23,44 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
   @override
   void initState() {
     super.initState();
-    String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
-    String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
     allExercises = [
-      Exercise(1, "Crunch", "Exercise1 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+.mp4", 1, ["abs", "legs"]),
-      Exercise(2, "Flutter Kicks", "Exercise2 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2.mp4", 1, ["abs"]),
-      Exercise(3, "Scissor Kicks", "Exercise3 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3.mp4", 10, ["abs"]),
-      Exercise(4, "Ab Hold", "Exercise4 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4.mp4", 60, ["abs"]),
-      Exercise(5, "Push Ups", "Exercise5 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+5+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+5.mp4", 90, ["abs"]),
-      Exercise(6, "1 Arm 1 Leg Reach Out", "Exercise6 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6.mp4", 120, ["abs"]),
-      Exercise(7, "Plank & Crunch Left", "Exercise7 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7.mp4", 191, ["abs"]),
-      Exercise(8, "Plank & 3 Elbow Taps", "Exercise8 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8.mp4", 1000, ["abs"]),
-      Exercise(9, "Plank & Pike", "Exercise9 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9.mp4", 191, ["abs"]),
-      Exercise(10, "Elbow Plank", "Exercise10 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10.mp4", 1000, ["abs"]),
-      Exercise(11, "Side Plank Left", "Exercise11 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11.mp4", 1000, ["abs"]),
-      Exercise(12, "Side Plank Right", "Exercise12 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12.mp4", 1000, ["abs"]),
-      Exercise(12, "Lean Back & Russian Twist", "Exercise13 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13.mp4", 1000, ["abs"]),
+      Exercise(1, "Side to Side Stretch", "Stretch from side to side!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['obliques']),
+      Exercise(2, "Arm Circles", "Circular arms!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['arms']),
+      Exercise(3, "Neck Circles", "Rotational neck circles", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['neck']),
+      Exercise(4, "Hip Flexor Right", "Stretch your right hip flexor!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+4+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+4.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['legs']),
+      Exercise(5, "Ham String Stretch", "Let's stretch those hamstrings!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+5+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+5.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['legs']),
+      Exercise(6, "Pigeon Stretch", "This is the pigeon stretch!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['legs', 'back']),
+      Exercise(7, "Hip Flexor Left", "Stretch your left hip flexor!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+7.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['legs']),
+      Exercise(8, "Tummy Stretch", "Stretch your tummy!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+8+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+8.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['chest', 'back', 'abs']),
+      Exercise(9, "Crunch", "desc9", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(10, "Hold + Single Taps", "desc10", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(11, "Flutter Kicks", "desc11", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+2+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(12, "Scissor Kicks", "desc12", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(13, "Ab Hold", "desc13", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+4+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(14, "1 Arm 1 Leg Reach Out", "desc14", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(15, "Plank + Crunch Left", "desc15", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(16, "Plank + Crunch Right", "desc16", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(17, "Plank + 3 Elbow Taps", "desc17", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+8+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(18, "Plank + Pike", "desc18", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+9+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(19, "Elbow Plank", "desc19", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+10+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(20, "Side Plank Left", "desc20", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(21, "Side Plank Right", "desc21", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+12+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(22, "Lean Back + Russian Twist", "desc22", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(23, "Mountain Climber", "desc23", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(24, "Plank Jump", "desc24", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(25, "Twisting Mountain Climber", "desc25", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail+.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
     ];
     savedExercises = [
-      Exercise(3, "Scissor Kicks", "Exercise3 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+3.mp4", 10, ["abs"]),
-      Exercise(7, "Plank & Crunch Left", "Exercise7 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+7.mp4", 191, ["abs"]),
-      Exercise(11, "Side Plank Left", "Exercise11 Description", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+11.mp4", 1000, ["abs"]),
+      Exercise(14, "1 Arm 1 Leg Reach Out", "desc14", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+6+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(16, "Plank + Crunch Right", "desc16", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(6, "Pigeon Stretch", "This is the pigeon stretch!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['legs', 'back']),
+      Exercise(24, "Plank Jump", "desc24", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),
+      Exercise(22, "Lean Back + Russian Twist", "desc22", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+13+.mp4", 30, DateTime.parse("2021-11-23 13:02:51.023-08"), DateTime.parse("2021-11-23 13:02:51.023-08"), ['abs']),  
     ];
   }
 
   Widget buildGrid(BuildContext context, int cardsInRow, double leftPadding) {
+    // TODO: Scale the number of cards in the row (WP-79)
     List<Exercise> exercises;
     if (allPressed) {
       exercises = allExercises;
@@ -81,6 +93,7 @@ class ExerciseLibraryState extends State<ExerciseLibrary> {
   @override
   Widget build(BuildContext context) {
     Widget sideBarOpenedWidget = Expanded(
+      // TODO: Pixel overflow caused from text and button not scaling (WP-78)
       child: Row(
         children: <Widget>[
           SizedBox(
