@@ -110,3 +110,17 @@ const TextStyle exerciseDialogTagsStyle = TextStyle(
   fontSize: 14,
   color: Colors.black,
 );
+
+const TextStyle addExercisePopupMenuButtonTextStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w700,
+  fontSize: 18,
+  color: Color(0xFF3CBFD4),
+);
+
+const TextStyle addExercisePopupMenuItemTextStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w400,
+  fontSize: 18,
+  color: Colors.white,
+);

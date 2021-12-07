@@ -21,40 +21,54 @@ class ExerciseDialog extends StatelessWidget {
           child: Card(
             semanticContainer: true,
             clipBehavior: Clip.antiAliasWithSaveLayer,
-            // child: Column()
             child: Column(
+              // TODO: match the popupmenu button to the figma design (https://ubclaunchpad.atlassian.net/browse/WP-83)
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 ListTile(
                   title: Text(exercise.name, style: exerciseDialogTitleStyle),
-                  trailing: PopupMenuButton(
+                  trailing: PopupMenuButton<String>(
+                    color: const Color(0xFF76B5BF),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
                     onSelected: (value) {
                       addToWorkouts(value);
                     },
                     itemBuilder: (context) => [
                       const PopupMenuItem(
-                        child: Text("First"),
+                        padding: EdgeInsets.only(right: 0, left: 10),
+                        child: Text("15 Minutes to Intense Abs",
+                            style: addExercisePopupMenuItemTextStyle),
                         value: "first",
                       ),
                       const PopupMenuItem(
-                        child: Text("Second"),
+                        padding: EdgeInsets.only(right: 0, left: 10),
+                        child: Text("5 Minute Stretch",
+                            style: addExercisePopupMenuItemTextStyle),
                         value: "second",
-                      )
+                      ),
+                      const PopupMenuDivider(),
+                      const PopupMenuItem(
+                          padding: EdgeInsets.only(right: 0, left: 10),
+                          child: Text("New Workout",
+                              style: addExercisePopupMenuItemTextStyle),
+                          value: "new")
                     ],
                     child: Container(
                       decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 3,
-                            color: Colors.cyan,
-                          ),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(5))),
+                        border: Border.all(
+                          width: 3,
+                          color: const Color(0xFF3CBFD4),
+                        ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8)),
+                      ),
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 5.0, vertical: 3.0),
-                        child: const Text('ADD',
+                            horizontal: 5.0, vertical: 0.0),
+                        child: const Text(' ADD ',
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Color(0xFF000000))),
+                            style: addExercisePopupMenuButtonTextStyle),
                       ),
                     ),
                   ),
