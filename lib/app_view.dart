@@ -52,11 +52,7 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
       body: Padding(
         padding: EdgeInsets.only(bottom: bottomPadding),
         child: LayoutBuilder(builder: (context, constraints) {
-          return Overlay(
-            initialEntries: [
-              OverlayEntry(builder: (context) => desktopView()),
-            ],
-          );
+          return desktopView();
         }),
       ),
     );

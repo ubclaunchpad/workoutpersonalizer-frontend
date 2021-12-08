@@ -131,7 +131,7 @@ Widget countDownTimer(BuildContext context) {
 }
 
 Widget videoDescription() {
-  return const Text('This is the workout description', textAlign: TextAlign.left,);
+  return const Text('This is the 5-minute stretch workout!', textAlign: TextAlign.left,);
 }
 
 Widget workoutTitle() {
