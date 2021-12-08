@@ -135,6 +135,7 @@ Widget videoDescription() {
 }
 
 Widget workoutTitle() {
+  // TODO: get workout description/notes/memo from backend (WP-87)
   return Container(
     alignment: Alignment.centerLeft,
     child: const Text(
