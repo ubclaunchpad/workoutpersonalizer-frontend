@@ -91,3 +91,4 @@ const TextStyle workoutEditorStyle = TextStyle(
 );
 
 const Color orange = Color(0xFFFFA101);
+const Color turquoise = Color(0xFF3CBFD4);
