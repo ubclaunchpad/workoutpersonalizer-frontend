@@ -8,10 +8,9 @@ class CustomTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Tab(
       child: FittedBox(
-        fit: BoxFit.fill,
+        fit: BoxFit.contain,
         child: Text(
           title,
           style: navBarItemStyle,

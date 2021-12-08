@@ -18,13 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'BalooBhai2',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      builder: (context, child) {
-        return Overlay(
-          initialEntries: [
-            OverlayEntry(builder: (_) => const AppView()),
-          ],
-        );
-      }
+      builder: (_, child) => AppView(),
     );
   }
 }

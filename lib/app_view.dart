@@ -1,66 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/models/content_view.dart';
+import 'package:workoutpersonalizer_frontend/ui/creators_corner_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/explore_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/my_workouts_page.dart';
-import 'package:workoutpersonalizer_frontend/ui/workout_creator_page.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab_bar.dart';
+
 class AppView extends StatefulWidget {
   const AppView({Key? key}) : super(key: key);
+
   @override
   _AppViewState createState() => _AppViewState();
 }
+
 class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
   late double screenHeight;
+  late double bottomPadding;
   late TabController tabController;
   List<ContentView> contentViews = [
     ContentView(
       tab: CustomTab(title: 'My Workouts'),
-      content: MyWorkoutsPage(),
+      content: const MyWorkoutsPage(),
     ),
     ContentView(
       tab: CustomTab(title: 'Explore'),
       content: ExplorePage(),
     ),
     ContentView(
-      tab: CustomTab(title: "Workout Creator"),
-      content: WorkoutCreatorPage(),
+      tab: CustomTab(title: "Creator's Corner"),
+      content: CreatorsCornerPage(),
     )
   ];
+
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: contentViews.length, vsync: this);
   }
+
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
+    bottomPadding = screenHeight * 0.01;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
+      body: Padding(
+        padding: EdgeInsets.only(bottom: bottomPadding),
+        child: LayoutBuilder(builder: (context, constraints) {
           return desktopView();
-        }
+        }),
       ),
     );
   }
+
   Widget desktopView() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomTabBar(
-          controller: tabController,
-          tabs: contentViews.map((e) => e.tab).toList(),
-        ),
-        Expanded(
-          child: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomTabBar(
             controller: tabController,
-            children: contentViews.map((e) => e.content).toList(),
+            tabs: contentViews.map((e) => e.tab).toList(),
           ),
-        ),
-      ],
+          SizedBox(
+            height: screenHeight * 0.85,
+            child: TabBarView(
+              controller: tabController,
+              children: contentViews.map((e) => e.content).toList(),
+            ),
+          ),
+        ],
+      )
     );
   }
 }
