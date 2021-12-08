@@ -23,7 +23,7 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
       content: ExplorePage(),
     ),
     ContentView(
-      tab: CustomTab(title: "Creator's Corner"),
+      tab: CustomTab(title: "Workout Creator"),
       content: WorkoutCreatorPage(),
     )
   ];
