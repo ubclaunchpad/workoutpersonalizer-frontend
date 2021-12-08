@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
-import 'package:workoutpersonalizer_frontend/widgets/creators_corner/labeled_check_box.dart';
+import 'package:workoutpersonalizer_frontend/widgets/workout_creator/labeled_check_box.dart';
 
 class FilterList extends StatefulWidget {
   const FilterList({Key? key}) : super(key: key);

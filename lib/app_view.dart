@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/models/content_view.dart';
-import 'package:workoutpersonalizer_frontend/ui/creators_corner_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/explore_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/my_workouts_page.dart';
+import 'package:workoutpersonalizer_frontend/ui/workout_creator_page.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab_bar.dart';
-
 class AppView extends StatefulWidget {
   const AppView({Key? key}) : super(key: key);
-
   @override
   _AppViewState createState() => _AppViewState();
 }
-
 class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
   late double screenHeight;
   late TabController tabController;
@@ -27,16 +24,14 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
     ),
     ContentView(
       tab: CustomTab(title: "Creator's Corner"),
-      content: CreatorsCornerPage(),
+      content: WorkoutCreatorPage(),
     )
   ];
-
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: contentViews.length, vsync: this);
   }
-
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
@@ -49,7 +44,6 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
       ),
     );
   }
-
   Widget desktopView() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,

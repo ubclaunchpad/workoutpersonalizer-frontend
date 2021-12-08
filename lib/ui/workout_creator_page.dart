@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:workoutpersonalizer_frontend/widgets/creators_corner/exercise_library.dart';
-import 'package:workoutpersonalizer_frontend/widgets/creators_corner/workout_editor.dart';
-import 'package:workoutpersonalizer_frontend/widgets/creators_corner/workout_viewer.dart';
+import 'package:workoutpersonalizer_frontend/widgets/workout_creator/exercise_library.dart';
+import 'package:workoutpersonalizer_frontend/widgets/workout_creator/workout_viewer.dart';
+import 'package:workoutpersonalizer_frontend/widgets/workout_creator/workout_editor.dart';
 
-class CreatorsCornerPage extends StatelessWidget {
-  const CreatorsCornerPage({Key? key}) : super(key: key);
+class WorkoutCreatorPage extends StatelessWidget {
+  const WorkoutCreatorPage({Key? key}) : super(key: key);
 
   static const int flexScaleWorkoutEditor = 4;
   static const int flexScaleWorkoutViewerAndExerciseLibrary = 6;
