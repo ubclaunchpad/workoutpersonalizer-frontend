@@ -16,7 +16,7 @@ class MyWorkoutsPage extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             title: const Text(
               'Workout Library',
-              style: primaryHeadingStyle,
+              style: h1
             ),
             trailing: IconButton(
               icon: const Icon(
@@ -33,7 +33,7 @@ class MyWorkoutsPage extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
             title: Text(
               'Saved Exercises',
-              style: primaryHeadingStyle,
+              style: h1
             ),
           ),
           const SizedBox(height: 10),

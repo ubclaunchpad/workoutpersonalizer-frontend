@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
+import 'package:workoutpersonalizer_frontend/models/exercise.dart';
 import 'package:workoutpersonalizer_frontend/models/workout.dart';
 import 'package:workoutpersonalizer_frontend/widgets/my_workouts/workout_card.dart';
 
@@ -27,7 +28,7 @@ class _WorkoutCardsState extends State<WorkoutCards> {
           "b70820ae-d0a3-411b-9217-0bf2370e7139",
           "8 Minutes to Intense Abs",
           "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png",
-          [],
+          [Exercise()],
           Duration(seconds: 510),
           DateTime.parse("2021-11-23 13:02:51.023-08"),
           DateTime.parse("2021-11-23 13:02:51.023-08"),
@@ -37,7 +38,7 @@ class _WorkoutCardsState extends State<WorkoutCards> {
           "b70820ae-d0a3-411b-9217-0bf2370e7139",
           "4 Minute Stretch",
           "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png",
-          [],
+          [Exercise()],
           Duration(seconds: 240),
           DateTime.parse("2021-11-23 13:02:51.023-08"),
           DateTime.parse("2021-11-23 13:02:51.023-08"),
@@ -53,7 +54,7 @@ class _WorkoutCardsState extends State<WorkoutCards> {
         child: Text(
             "It looks like you haven't created any workouts yet."
             "Click the top right plus icon to get started.",
-            style: secondaryHeadingStyle,
+            style: h2
         )
       );
     }
