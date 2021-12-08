@@ -6,7 +6,8 @@ class Exercise {
   final String description;
   final String thumbnailSrc;
   final String videoSrc;
-  final int length; // units?
+  // TODO: change length to Duration (ticket: WP-84)
+  final int length; // seconds?
 
   Exercise(
     this.id,

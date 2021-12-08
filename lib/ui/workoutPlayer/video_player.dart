@@ -49,6 +49,7 @@ class VideoPlayerState extends State<VideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Fix audio keep playing when video paused (WP-86)
     return Chewie(controller: _chewie);
   }
 }

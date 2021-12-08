@@ -150,6 +150,7 @@ Widget workoutTitle() {
 }
 
 Widget exerciseList(BuildContext context, List<Exercise> exercises, Function setCurExercise, ItemScrollController _itemScrollController, curExerciseIndex) {
+  // TODO: Fix overflow (WP-85)
   return exercises.isNotEmpty
     ? ScrollablePositionedList.builder(
         itemScrollController: _itemScrollController,
