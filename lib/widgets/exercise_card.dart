@@ -10,8 +10,8 @@ String tagsString(List<String> tags) {
   return output;
 }
 
-Widget createExerciseCard(
-    List<Exercise> exercises, int index, bool allExercisesButtonPressed) {
+Widget createExerciseCard(List<Exercise> exercises, int index,
+    bool allExercisesButtonPressed, bool explorePage) {
   Icon heart;
   if (allExercisesButtonPressed) {
     heart = const Icon(
@@ -49,6 +49,62 @@ Widget createExerciseCard(
                 fit: BoxFit.cover,
               ),
             ),
+            //TODO: switch order of heart and add buttons (https://ubclaunchpad.atlassian.net/browse/WP-88)
+            explorePage
+                ? Positioned(
+                    top: 25,
+                    right: -5,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: PopupMenuButton<String>(
+                        color: const Color(0xFF76B5BF),
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8))),
+                        onSelected: (value) {
+                          print("add to " + value);
+                        },
+                        itemBuilder: (context) => [
+                          const PopupMenuItem(
+                            padding: EdgeInsets.only(right: 0, left: 10),
+                            child: Text("8 Minutes to Intense Abs",
+                                style: addExercisePopupMenuItemTextStyle),
+                            value: "first",
+                          ),
+                          const PopupMenuItem(
+                            padding: EdgeInsets.only(right: 0, left: 10),
+                            child: Text("4 Minute Stretch",
+                                style: addExercisePopupMenuItemTextStyle),
+                            value: "second",
+                          ),
+                          const PopupMenuDivider(),
+                          const PopupMenuItem(
+                              padding: EdgeInsets.only(right: 0, left: 10),
+                              child: Text("New Workout",
+                                  style: addExercisePopupMenuItemTextStyle),
+                              value: "new")
+                        ],
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(
+                              width: 3,
+                              color: const Color(0xFF3CBFD4),
+                            ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(8)),
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 5.0, vertical: 0.0),
+                            child: const Text(' ADD ',
+                                textAlign: TextAlign.center,
+                                style: addExercisePopupMenuButtonTextStyle),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                : const SizedBox.shrink(),
             Positioned(
               top: -10,
               right: 0,

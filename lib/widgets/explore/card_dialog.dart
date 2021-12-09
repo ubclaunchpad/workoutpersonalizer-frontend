@@ -8,6 +8,7 @@ class ExerciseDialog extends StatelessWidget {
   final Exercise exercise;
 
   void addToWorkouts(value) {
+    //TODO: find better spot for this function (https://ubclaunchpad.atlassian.net/browse/WP-90)
     print("this is value " + value);
   }
 
@@ -27,6 +28,7 @@ class ExerciseDialog extends StatelessWidget {
               children: <Widget>[
                 ListTile(
                   title: Text(exercise.name, style: exerciseDialogTitleStyle),
+                  // TODO: extract popupmenu button for re-use (https://ubclaunchpad.atlassian.net/browse/WP-89)
                   trailing: PopupMenuButton<String>(
                     color: const Color(0xFF76B5BF),
                     shape: const RoundedRectangleBorder(
@@ -37,13 +39,13 @@ class ExerciseDialog extends StatelessWidget {
                     itemBuilder: (context) => [
                       const PopupMenuItem(
                         padding: EdgeInsets.only(right: 0, left: 10),
-                        child: Text("15 Minutes to Intense Abs",
+                        child: Text("8 Minutes to Intense Abs",
                             style: addExercisePopupMenuItemTextStyle),
                         value: "first",
                       ),
                       const PopupMenuItem(
                         padding: EdgeInsets.only(right: 0, left: 10),
-                        child: Text("5 Minute Stretch",
+                        child: Text("4 Minute Stretch",
                             style: addExercisePopupMenuItemTextStyle),
                         value: "second",
                       ),
@@ -98,6 +100,7 @@ class ExerciseDialog extends StatelessWidget {
                         padding: EdgeInsets.only(left: 8),
                         child: Align(
                             alignment: Alignment.bottomLeft,
+                            //TODO: take this function definition out of exercise_card (https://ubclaunchpad.atlassian.net/browse/WP-91)
                             child: Text(tagsString(exercise.tags),
                                 style: exerciseDialogTagsStyle))))
               ],
