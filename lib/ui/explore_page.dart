@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/models/exercise.dart';
-import 'package:workoutpersonalizer_frontend/widgets/sidelayout.dart';
+import 'package:workoutpersonalizer_frontend/widgets/explore/sidelayout.dart';
 import '../widgets/explore/gallery_view.dart';
 
 class ExplorePage extends StatelessWidget {
