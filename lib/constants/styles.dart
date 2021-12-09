@@ -90,5 +90,39 @@ const TextStyle workoutEditorStyle = TextStyle(
   color: Color(0xFF464646),
 );
 
+const TextStyle exerciseDialogTitleStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w600,
+  fontSize: 24,
+  color: Color(0xFF464646),
+);
+
+const TextStyle exerciseDialogDescriptionContentStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w500,
+  fontSize: 14,
+  color: Colors.black,
+);
+
+const TextStyle exerciseDialogTagsStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+  color: Colors.black,
+);
+
+const TextStyle addExercisePopupMenuButtonTextStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w700,
+  fontSize: 18,
+  color: Color(0xFF3CBFD4),
+);
+
+const TextStyle addExercisePopupMenuItemTextStyle = TextStyle(
+  fontFamily: "BalooBhai2",
+  fontWeight: FontWeight.w400,
+  fontSize: 18,
+  color: Colors.white,
+);
 const Color orange = Color(0xFFFFA101);
 const Color turquoise = Color(0xFF3CBFD4);

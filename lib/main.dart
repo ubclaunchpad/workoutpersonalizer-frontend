@@ -12,19 +12,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Workout Personalizer',
-      theme: ThemeData(
-        fontFamily: 'BalooBhai2',
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      builder: (context, child) {
-        return Overlay(
+        debugShowCheckedModeBanner: false,
+        title: 'Workout Personalizer',
+        theme: ThemeData(
+          fontFamily: 'BalooBhai2',
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        // builder: (_, child) => AppView(),
+        // home: AppView(),
+        home: Overlay(
           initialEntries: [
             OverlayEntry(builder: (_) => const AppView()),
           ],
+        )
+        // FROM MAIN
+        // builder: (context, child) {
+        //   return Overlay(
+        //     initialEntries: [
+        //       OverlayEntry(builder: (_) => const AppView()),
+        //     ],
+        //   );
+        // }
         );
-      }
-    );
   }
 }

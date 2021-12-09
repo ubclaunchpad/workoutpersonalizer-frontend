@@ -14,9 +14,9 @@ class Exercise {
   Exercise(
     this.id,
     this.name,
-    this.description, 
-    this.thumbnailSrc, 
-    this.videoSrc, 
+    this.description,
+    this.thumbnailSrc,
+    this.videoSrc,
     this.length,
     this.createdAt,
     this.updatedAt,
@@ -26,7 +26,7 @@ class Exercise {
   factory Exercise.fromJson(Map<String, dynamic> json) {
     return Exercise(
       json['id'],
-      json['name'],      
+      json['name'],
       json['description'],
       json['thumbnailSrc'],
       json['videoSrc'],
