@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/models/content_view.dart';
-import 'package:workoutpersonalizer_frontend/ui/creators_corner_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/explore_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/my_workouts_page.dart';
+import 'package:workoutpersonalizer_frontend/ui/workout_creator_page.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab_bar.dart';
-
 class AppView extends StatefulWidget {
   const AppView({Key? key}) : super(key: key);
-
   @override
   _AppViewState createState() => _AppViewState();
 }
-
 class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
   late double screenHeight;
-  late double bottomPadding;
   late TabController tabController;
   List<ContentView> contentViews = [
     ContentView(
@@ -27,32 +23,27 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
       content: ExplorePage(),
     ),
     ContentView(
-      tab: CustomTab(title: "Creator's Corner"),
-      content: CreatorsCornerPage(),
+      tab: CustomTab(title: "Workout Creator"),
+      content: WorkoutCreatorPage(),
     )
   ];
-
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: contentViews.length, vsync: this);
   }
-
   @override
   Widget build(BuildContext context) {
     screenHeight = MediaQuery.of(context).size.height;
-    bottomPadding = screenHeight * 0.01;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.only(bottom: bottomPadding),
-        child: LayoutBuilder(builder: (context, constraints) {
+      body: LayoutBuilder(
+        builder: (context, constraints) {
           return desktopView();
-        }),
+        }
       ),
     );
   }
-
   Widget desktopView() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -62,9 +53,9 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
           controller: tabController,
           tabs: contentViews.map((e) => e.tab).toList(),
         ),
-        SizedBox(
-          height: screenHeight * 0.85,
+        Expanded(
           child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
             controller: tabController,
             children: contentViews.map((e) => e.content).toList(),
           ),
