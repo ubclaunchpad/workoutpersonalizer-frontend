@@ -24,7 +24,7 @@ class _EditAccountFormState extends State<EditAccountForm> {
               padding: const EdgeInsets.only(right: 8),
               child: Column(
                 children: [
-                  const Text("First Name", style: h2),
+                  const Text("First Name", style: secondaryHeadingStyle),
                   CustomFormField(
                     initialValue: defaultUser.firstName,
                     hintText: "Enter your first name"
@@ -36,7 +36,7 @@ class _EditAccountFormState extends State<EditAccountForm> {
               padding: const EdgeInsets.only(left: 8),
               child: Column(
                 children: [
-                  const Text("Last Name", style: h2),
+                  const Text("Last Name", style: secondaryHeadingStyle),
                   CustomFormField(
                     initialValue: defaultUser.lastName,
                     hintText: "Enter your last name"
@@ -55,12 +55,12 @@ class _EditAccountFormState extends State<EditAccountForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           firstAndLastName(),
-          const Text("Email", style: h2),
+          const Text("Email", style: secondaryHeadingStyle),
           CustomFormField(
             initialValue: defaultUser.email,
             hintText: "Enter your email"
           ),
-          const Text("Username", style: h2),
+          const Text("Username", style: secondaryHeadingStyle),
           CustomFormField(
             initialValue: defaultUser.username,
             hintText: "Enter your username"
@@ -73,7 +73,7 @@ class _EditAccountFormState extends State<EditAccountForm> {
                 // Process data.
               }
             },
-            child: const Text('SAVE', style: h2),
+            child: const Text('SAVE', style: secondaryHeadingStyle),
             style: ElevatedButton.styleFrom(primary: turquoise),
           ),
         ],

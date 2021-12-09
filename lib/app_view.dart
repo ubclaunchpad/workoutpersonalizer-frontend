@@ -27,9 +27,10 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
       tab: CustomTab(title: "Workout Creator"),
       content: WorkoutCreatorPage(),
     ),
-    // TODO: Change My Account tab into an icon (WP-68)
+    // My Account page should always be the last page in the list
+    // TODO: Hide My Account tab (https://ubclaunchpad.atlassian.net/browse/WP-92)
     ContentView(
-      tab: CustomTab(title: "My Account"),
+      tab: CustomTab(title: " "),
       content: const MyAccountPage(),
     )
   ];

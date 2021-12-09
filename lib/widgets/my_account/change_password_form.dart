@@ -25,11 +25,11 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const Text("Old Password", style: h2),
+          const Text("Old Password", style: secondaryHeadingStyle),
           const CustomFormField(hintText: "Enter your old password"),
-          const Text("New Password", style: h2),
+          const Text("New Password", style: secondaryHeadingStyle),
           const CustomFormField(hintText: "Enter your new password"),
-          const Text("Confirm New Password", style: h2),
+          const Text("Confirm New Password", style: secondaryHeadingStyle),
           const CustomFormField(hintText: "Re-enter your new password"),
           ElevatedButton(
             onPressed: () {
@@ -39,7 +39,7 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
                 // Process data.
               }
             },
-            child: const Text('SAVE', style: h2),
+            child: const Text('SAVE', style: secondaryHeadingStyle),
             style: ElevatedButton.styleFrom(primary: turquoise),
           ),
         ],

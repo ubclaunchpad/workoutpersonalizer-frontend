@@ -17,7 +17,7 @@ class MyAccountPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 16),
               child: Column(children: const [
-                Text("Edit Account Details", style: h1),
+                Text("Edit Account Details", style: primaryHeadingStyle),
                 EditAccountForm()
               ])
             )
@@ -26,7 +26,7 @@ class MyAccountPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 16),
               child: Column(children: const [
-                Text("Change Password", style: h1),
+                Text("Change Password", style: primaryHeadingStyle),
                 ChangePasswordForm()
               ])
             ),

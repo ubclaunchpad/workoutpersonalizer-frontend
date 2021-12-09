@@ -19,11 +19,11 @@ class WorkoutCard extends StatelessWidget {
             ListTile(
                 title: Text(
                   workout.name,
-                  style: primaryHeadingStyle,
+                  style: secondaryHeadingStyle,
                 ),
                 subtitle: Text(
                   workout.getFormattedTotalWorkoutTime(),
-                  style: secondaryHeadingStyle,
+                  style: bodyTextStyle,
                 ),
                 trailing: IconButton(
                   icon: const Icon(Icons.delete),
@@ -38,7 +38,7 @@ class WorkoutCard extends StatelessWidget {
               subtitle: Text(
                 "Last edited: "
                 + DateFormat.yMd().format(workout.lastModificationDate),
-                style: secondaryHeadingStyle,
+                style: bodyTextStyle,
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.edit),
