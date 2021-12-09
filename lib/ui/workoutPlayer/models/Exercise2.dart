@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+import 'dart:html';
 
 class Exercise {
   final int id;
@@ -6,10 +6,8 @@ class Exercise {
   final String description;
   final String thumbnailSrc;
   final String videoSrc;
-  final int length; // in seconds
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final List<String> tags;
+  // TODO: change length to Duration (ticket: WP-84)
+  final int length; // seconds?
 
   Exercise(
     this.id,
@@ -17,23 +15,17 @@ class Exercise {
     this.description,
     this.thumbnailSrc,
     this.videoSrc,
-    this.length,
-    this.createdAt,
-    this.updatedAt,
-    this.tags,
+    this.length
   );
 
   factory Exercise.fromJson(Map<String, dynamic> json) {
     return Exercise(
       json['id'],
-      json['name'],
+      json['title'],
       json['description'],
       json['thumbnailSrc'],
       json['videoSrc'],
       json['length'],
-      json['createdAt'],
-      json['updatedAt'],
-      json['tags'],
     );
   }
 }
