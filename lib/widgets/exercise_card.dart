@@ -16,6 +16,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
   if (allExercisesButtonPressed) {
     heart = const Icon(
       Icons.favorite_outline,
+      color: Colors.white,
     );
   } else {
     heart = const Icon(
@@ -36,7 +37,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
             exercises[index].name,
             style: exerciseCardTitleStyle,
           ),
-          tileColor: const Color(0xFFFFCD78),
+          tileColor: const Color(0xFFFFA101),
           dense: true,
         ),
         Stack(alignment: Alignment.bottomLeft, children: <Widget>[
@@ -124,15 +125,24 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
                           print("pressed heart\n");
                         },
                         iconSize: 35,
-                        color: Colors.white,
                         highlightColor: Colors.transparent,
                         hoverColor: Colors.transparent,
                         splashColor: Colors.transparent,
                         icon: heart),
                   )
                 ],
-              ))
-        ])
+              )),
+        ]),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, right: 8, left: 8),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              tagsString(exercises[index].tags),
+              style: exerciseCardTagStyle,
+            ),
+          ),
+        )
       ],
     ),
   );

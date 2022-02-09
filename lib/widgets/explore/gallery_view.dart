@@ -48,7 +48,7 @@ class _GalleryState extends State<Gallery> {
         controller: ScrollController(),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
-            childAspectRatio: 8 / 7,
+            childAspectRatio: 9 / 7,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
         itemCount: exercisesToDisplay.length,
