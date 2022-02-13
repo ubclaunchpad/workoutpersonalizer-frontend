@@ -29,9 +29,18 @@ class WorkoutCard extends StatelessWidget {
                   icon: const Icon(Icons.delete),
                   onPressed: () {},
                 )),
-            InkWell(
-              onTap: () {},
-              child: Image.network(workout.imageUrl, height: 225, fit: BoxFit.fitWidth)
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(height: 225),
+                Positioned.fill(
+                  child: Image.network(workout.imageUrl, height: 225, fit: BoxFit.fitWidth),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.play_arrow),
+                  onPressed: () {},
+                ),
+              ],
             ),
             ListTile(
               minVerticalPadding: 20,
