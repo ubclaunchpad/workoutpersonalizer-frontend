@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:workoutpersonalizer_frontend/screens/playlist_gallery.dart';
+// import 'package:workoutpersonalizer_frontend/screens/playlist_gallery.dart';
 
 class Sidebar extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
