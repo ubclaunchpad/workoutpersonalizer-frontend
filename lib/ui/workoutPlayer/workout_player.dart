@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:expandable/expandable.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/models/Exercise2.dart';
+import 'package:workoutpersonalizer_frontend/models/exercise.dart';
+// import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/models/Exercise2.dart';
 
 import 'video_player.dart';
 
@@ -27,15 +28,30 @@ class _WorkoutPlayer extends State<WorkoutPlayer> {
     // TODO: change exercises here
     String dummyThumbnailUrl = "https://cdn.centr.com/content/17000/16775/images/landscapewidemobile3x-bobby-push-up-16-9.jpg";
     String dummyVideoUrl = "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4";
+    List<String> tags =[];
     exercises = [
-      Exercise(1, "Side to Side Stretch", "Stretch from side to side!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1.mp4", 44),
-      Exercise(2, "Arm Circles", "Circular arms!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2.mp4", 30),
-      Exercise(3, "Neck Circles", "Rotational neck circles", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3+.mp4", 30),
+      Exercise(1, "Side to Side Stretch", "Stretch from side to side!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1.mp4", 44, 
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        []
+      ),
+      Exercise(2, "Arm Circles", "Circular arms!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2.mp4", 30,
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        []
+      ),
+      Exercise(3, "Neck Circles", "Rotational neck circles", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+3+.mp4", 30,
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        []
+      ),
+      /*
       Exercise(4, "Hip Flexor Right", "Stretch your right hip flexor!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+4+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+4+.mp4", 30),
       Exercise(5, "Ham String Stretch", "Let's stretch those hamstrings!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+5+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+5+.mp4", 30),
       Exercise(6, "Pigeon Stretch", "This is the pigeon stretch!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+6+.mp4", 30),
       Exercise(7, "Hip Flexor Left", "Stretch your left hip flexor!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+7+Thumbnail.png", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+7+.mp4", 30),
       Exercise(8, "Tummy Stretch", "Stretch your tummy!", "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+8+Thumbnail.png", "https://s3.console.aws.amazon.com/s3/object/teamworkoutplatform?region=us-west-2&prefix=Clip+8.mp4", 30),
+      */
     ];
   }
 
@@ -200,11 +216,11 @@ Widget exercise(BuildContext context, Exercise exercise, bool isCurIndex) {
           ),
           Flexible(child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center, // crossAxisAlignment: CrossAxisAlignment.start, align left
             children: [
               Text(
                 exercise.name,
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.center, // textAlign: TextAlign.left, align left
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -213,7 +229,8 @@ Widget exercise(BuildContext context, Exercise exercise, bool isCurIndex) {
               ),
               Text(
                 sDuration,
-                style: TextStyle(
+                // textAlign: TextAlign.left, align left
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                   fontSize: 10
