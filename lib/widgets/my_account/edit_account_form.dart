@@ -52,7 +52,8 @@ class _EditAccountFormState extends State<EditAccountForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           firstAndLastName(),
           const Text("Email", style: secondaryHeadingStyle),

@@ -23,7 +23,8 @@ class _ChangePasswordFormState extends State<ChangePasswordForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text("Old Password", style: secondaryHeadingStyle),
           const CustomFormField(hintText: "Enter your old password"),
