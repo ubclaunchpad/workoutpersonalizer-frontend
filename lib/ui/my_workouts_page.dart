@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/widgets/my_workouts/workout_cards.dart';
+import 'package:workoutpersonalizer_frontend/widgets/my_workouts/exercise_cards.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class MyWorkoutsPage extends StatelessWidget {
@@ -38,6 +39,7 @@ class MyWorkoutsPage extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           // TODO: Add exercise cards (ubclaunchpad.atlassian.net/browse/WP-58)
+          const ExerciseCards(),
       ],)
     );
   }
