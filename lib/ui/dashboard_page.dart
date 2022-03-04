@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-class CreatorsCornerPage extends StatelessWidget {
+class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: WP-13 (ubclaunchpad.atlassian.net/browse/WP-13)
     return Center(
       child: Container(
         child: const Text(
-          "Creator's Corner Page",
+          "Dashboard Page",
           style: TextStyle(fontSize: 30),
         ),
       ),
