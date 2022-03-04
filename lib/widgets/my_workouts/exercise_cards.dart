@@ -22,8 +22,28 @@ class _ExerciseCardsState extends State<ExerciseCards> {
   Widget _buildExerciseCards() {
     // TODO: Get actual exercises from backend (ubclaunchpad.atlassian.net/browse/WP-93)
     final exercises = [
-      Exercise(),
-      Exercise(),
+      Exercise(
+        1,
+        "Side to Side Stretch",
+        "Stretch from side to side!",
+        "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png",
+        "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1.mp4",
+        30,
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        []
+      ),
+      Exercise(
+        2,
+        "Arm Circles",
+        "Circular arms!",
+        "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2+Thumbnail.png",
+        "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+2.mp4",
+        30,
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        DateTime.parse("2021-11-23 13:02:51.023-08"),
+        []
+      ),
     ];
     for (final exercise in exercises) {
       _exerciseCards.add(ExerciseCard(exercise: exercise));
@@ -35,7 +55,7 @@ class _ExerciseCardsState extends State<ExerciseCards> {
         child: Text(
             "It looks like you haven't created any exercises yet."
             "Click the top right plus icon to get started.",
-            style: h2
+            style: secondaryHeadingStyle,
         )
       );
     }

@@ -38,7 +38,6 @@ class MyWorkoutsPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          // TODO: Add exercise cards (ubclaunchpad.atlassian.net/browse/WP-58)
           const ExerciseCards(),
       ],)
     );
