@@ -11,27 +11,51 @@ class MyAccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         padding: const EdgeInsets.all(32),
-        child: Row(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: Column(children: const [
-                Text("Edit Account Details", style: primaryHeadingStyle),
-                EditAccountForm()
-              ])
-            )
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Column(children: const [
-                Text("Change Password", style: primaryHeadingStyle),
-                ChangePasswordForm()
-              ])
+            IntrinsicHeight(
+              child:
+                Row(
+                  children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 16),
+                      child: Column(children: const [
+                        Text("Edit Account Details", style: primaryHeadingStyle),
+                        EditAccountForm()
+                      ])
+                    )
+                  ),
+                  const VerticalDivider(
+                    width: 20,
+                    thickness: 1,
+                    indent: 20,
+                    endIndent: 0,
+                    color: Colors.grey,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Column(children: const [
+                        Text("Change Password", style: primaryHeadingStyle),
+                        ChangePasswordForm()
+                      ])
+                    ),
+                  )
+                ])
             ),
-          )
-        ])
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text('DELETE ACCOUNT', style: secondaryHeadingStyle),
+                style: ElevatedButton.styleFrom(primary: Colors.red),
+              ),
+            )
+          ],
+        ),
       );
   }
 }
