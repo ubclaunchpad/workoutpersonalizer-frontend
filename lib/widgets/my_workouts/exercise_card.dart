@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
-import 'package:workoutpersonalizer_frontend/models/workout.dart';
+import 'package:workoutpersonalizer_frontend/models/exercise.dart';
 
-class WorkoutCard extends StatelessWidget {
-  final Workout workout;
-  const WorkoutCard({Key? key, required this.workout}) : super(key: key);
+class ExerciseCard extends StatelessWidget {
+  final Exercise exercise;
+  const ExerciseCard({Key? key, required this.exercise}) : super(key: key);
 
-  // TODO: Implement play video, edit and delete buttons (ubclaunchpad.atlassian.net/browse/WP-60)
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,11 +17,11 @@ class WorkoutCard extends StatelessWidget {
           children: [
             ListTile(
                 title: Text(
-                  workout.name,
+                  exercise.name,
                   style: primaryHeadingStyle,
                 ),
                 subtitle: Text(
-                  workout.getFormattedTotalWorkoutTime(),
+                  exercise.length.toString() + " sec",
                   style: secondaryHeadingStyle,
                 ),
                 trailing: IconButton(
@@ -31,13 +30,13 @@ class WorkoutCard extends StatelessWidget {
                 )),
             InkWell(
               onTap: () {},
-              child: Image.network(workout.imageUrl, height: 225, fit: BoxFit.fitWidth)
+              child: Image.network(exercise.thumbnailSrc, height: 225, fit: BoxFit.fitWidth)
             ),
             ListTile(
               minVerticalPadding: 20,
               subtitle: Text(
                 "Last edited: "
-                + DateFormat.yMd().format(workout.lastModificationDate),
+                + DateFormat.yMd().format(exercise.updatedAt),
                 style: secondaryHeadingStyle,
               ),
               trailing: IconButton(

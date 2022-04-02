@@ -3,14 +3,14 @@ import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 import 'package:workoutpersonalizer_frontend/models/workout.dart';
 import 'package:workoutpersonalizer_frontend/widgets/my_workouts/workout_card.dart';
 
-class WorkoutLibrary extends StatefulWidget {
-  const WorkoutLibrary({Key? key}) : super(key: key);
+class WorkoutCards extends StatefulWidget {
+  const WorkoutCards({Key? key}) : super(key: key);
 
   @override
   _WorkoutCardsState createState() => _WorkoutCardsState();
 }
 
-class _WorkoutCardsState extends State<WorkoutLibrary> {
+class _WorkoutCardsState extends State<WorkoutCards> {
   final List<WorkoutCard> _workoutCards = <WorkoutCard>[];
   final ScrollController _scrollController = ScrollController();
 
@@ -53,7 +53,7 @@ class _WorkoutCardsState extends State<WorkoutLibrary> {
         child: Text(
             "It looks like you haven't created any workouts yet."
             "Click the top right plus icon to get started.",
-            style: bodyTextStyle,
+            style: secondaryHeadingStyle,
         )
       );
     }

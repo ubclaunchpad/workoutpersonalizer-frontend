@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workoutpersonalizer_frontend/widgets/my_workouts/saved_exercises.dart';
-import 'package:workoutpersonalizer_frontend/widgets/my_workouts/workout_library.dart';
+import 'package:workoutpersonalizer_frontend/widgets/my_workouts/workout_cards.dart';
+import 'package:workoutpersonalizer_frontend/widgets/my_workouts/exercise_cards.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class MyWorkoutsPage extends StatelessWidget {
@@ -28,7 +28,7 @@ class MyWorkoutsPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          const WorkoutLibrary(),
+          const WorkoutCards(),
           const SizedBox(height: 30),
           const ListTile(
             contentPadding: EdgeInsets.zero,
@@ -38,7 +38,7 @@ class MyWorkoutsPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          const SavedExercises()
+          const ExerciseCards(),
       ],)
     );
   }

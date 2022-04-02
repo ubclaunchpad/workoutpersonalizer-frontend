@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class CustomTabBar extends StatelessWidget {
-  CustomTabBar({Key? key, required this.controller, required this.tabs})
+  const CustomTabBar({Key? key, required this.controller, required this.tabs})
     : super(key: key);
 
   final TabController controller;
