@@ -1,4 +1,32 @@
 // ignore_for_file: file_names
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<List<Exercise>> fetchExercises(String endpoint) async {
+  final res = await http.get(Uri.parse(endpoint));
+  if (res.statusCode == 200) {
+    List<dynamic> decoded = jsonDecode(res.body);
+    List<Exercise> exercises = [];
+    for (final exercise in decoded) {
+      final parsed = Exercise.fromJson(exercise);
+      exercises.add(parsed);
+    }
+    return exercises;
+  } else {
+    throw Exception('Failed to load all exercises');
+  }
+}
+
+Future<List<Exercise>> fetchAllExercises() async {
+  // TODO: unhardcode endpoint
+  return fetchExercises('http://localhost:8000/exercises');
+}
+
+Future<List<Exercise>> fetchSavedExercises() async {
+  // TODO: unhardcode endpoint, esp userId
+  return fetchExercises(
+      'http://localhost:8000/users/b70820ae-d0a3-411b-9217-0bf2370e7139/savedExercises');
+}
 
 class Exercise {
   final int id;
@@ -30,10 +58,15 @@ class Exercise {
       json['description'],
       json['thumbnailSrc'],
       json['videoSrc'],
-      json['length'],
-      json['createdAt'],
-      json['updatedAt'],
-      json['tags'],
+      int.parse(json['length']),
+      DateTime.parse(json['createdAt']),
+      DateTime.parse(json['updatedAt']),
+      [
+        ...json['DifficultyLevels'],
+        ...json['ExerciseTypes'],
+        ...json['Equipment'],
+        ...json['MuscleGroups']
+      ],
     );
   }
 }
