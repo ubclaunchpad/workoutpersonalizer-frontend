@@ -58,7 +58,7 @@ class Exercise {
       json['description'],
       json['thumbnailSrc'],
       json['videoSrc'],
-      int.parse(json['length']),
+      json['length'],
       DateTime.parse(json['createdAt']),
       DateTime.parse(json['updatedAt']),
       [
