@@ -13,61 +13,84 @@ class WorkoutCards extends StatefulWidget {
 class _WorkoutCardsState extends State<WorkoutCards> {
   final List<WorkoutCard> _workoutCards = <WorkoutCard>[];
   final ScrollController _scrollController = ScrollController();
+  late Future<List> futureWorkouts;
+
+  @override
+  void initState() {
+    super.initState();
+    futureWorkouts = fetchWorkouts();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: _buildWorkoutCards());
+    return FutureBuilder<List>(
+      future: futureWorkouts,
+      builder: _buildWorkoutCards,
+    );
   }
 
-  Widget _buildWorkoutCards() {
-    // TODO: Get actual workouts from backend (ubclaunchpad.atlassian.net/browse/WP-55)
-    final workouts = [
-      Workout(
-          "TestId",
-          "b70820ae-d0a3-411b-9217-0bf2370e7139",
-          "8 Minutes to Intense Abs",
-          "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Exercise+1+Thumbnail.png",
-          [],
-          Duration(seconds: 510),
-          DateTime.parse("2021-11-23 13:02:51.023-08"),
-          DateTime.parse("2021-11-23 13:02:51.023-08"),
-          DateTime.now()),
-      Workout(
-          "TestId",
-          "b70820ae-d0a3-411b-9217-0bf2370e7139",
-          "4 Minute Stretch",
-          "https://teamworkoutplatform.s3.us-west-2.amazonaws.com/Clip+1+Thumbnail.png",
-          [],
-          Duration(seconds: 240),
-          DateTime.parse("2021-11-23 13:02:51.023-08"),
-          DateTime.parse("2021-11-23 13:02:51.023-08"),
-          DateTime.now()),
-    ];
-    for (final workout in workouts) {
-      _workoutCards.add(WorkoutCard(workout: workout));
-    }
+  Widget _buildWorkoutCards(BuildContext context, AsyncSnapshot<List> snapshot) {
+    if (snapshot.hasData) {
+      for (final workout in snapshot.data!) {
+        _workoutCards.add(WorkoutCard(workout: workout));
+      }
 
-    if (_workoutCards.isEmpty) {
-      return const SizedBox(
-        height: 365,
-        child: Text(
+      if (_workoutCards.isEmpty) {
+        return const SizedBox(
+          height: 365,
+          child: Text(
             "It looks like you haven't created any workouts yet."
             "Click the top right plus icon to get started.",
             style: secondaryHeadingStyle,
-        )
+          )
+        );
+      }
+      // TODO: Build _workoutCards on demand (ubclaunchpad.atlassian.net/browse/WP-53)
+      return Scrollbar(
+          isAlwaysShown: true,
+          controller: _scrollController,
+          child: SizedBox(
+              height: 380,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  controller: _scrollController,
+                  itemCount: _workoutCards.length,
+                  padding: const EdgeInsets.only(bottom: 15),
+                  itemBuilder: (context, index) => _workoutCards[index])));
+    } else if (snapshot.hasError) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot.error}'),
+              )
+            ],
+        ),
+      );
+    } else {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const <Widget>[
+            SizedBox(
+              width: 60,
+              height: 60,
+              child: CircularProgressIndicator(),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 16),
+              child: Text('Awaiting workouts...'),
+            )
+          ],
+        ),
       );
     }
-    // TODO: Build _workoutCards on demand (ubclaunchpad.atlassian.net/browse/WP-53)
-    return Scrollbar(
-        isAlwaysShown: true,
-        controller: _scrollController,
-        child: SizedBox(
-            height: 380,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                controller: _scrollController,
-                itemCount: _workoutCards.length,
-                padding: const EdgeInsets.only(bottom: 15),
-                itemBuilder: (context, index) => _workoutCards[index])));
   }
 }
