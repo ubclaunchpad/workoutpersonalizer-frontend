@@ -45,8 +45,8 @@ FitHub allows users to create, organize and follow playlists of exercises- allow
 ## Getting Started
 ### Prerequisites
 
-1. [MacOS](https://docs.flutter.dev/get-started/install/macos)
-2. [Windows](https://docs.flutter.dev/get-started/install/windows)
+1. [MacOS Installation Instructions](https://docs.flutter.dev/get-started/install/macos)
+2. [Windows Installation Instructions](https://docs.flutter.dev/get-started/install/windows)
 
 <!-- CONTRIBUTING -->
 ## Contributing
