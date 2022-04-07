@@ -20,6 +20,7 @@ class CustomFormField extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 16.0),
       child: TextFormField(
           initialValue: initialValue,
+          // obscureText: true, - this will turn input characters into bullets
           decoration: InputDecoration(
               hintText: hintText, filled: true, fillColor: lightOrange),
           validator: _validateField),

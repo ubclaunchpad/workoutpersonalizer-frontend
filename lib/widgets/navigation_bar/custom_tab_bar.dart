@@ -27,7 +27,7 @@ class CustomTabBar extends StatelessWidget {
                 height: 30,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: Color(0xFF827373),
+                    color: grey,
                   ),
                 ),
               )),
