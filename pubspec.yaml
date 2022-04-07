@@ -38,11 +38,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   video_player_web: ^2.0.4
   wakelock_web: ^0.4.0
-  chewie: ^1.2.2
   circular_countdown_timer: ^0.2.0
   models: ^0.0.2
   scrollable_positioned_list: ^0.2.3
   expandable: ^5.0.1
+  chewie: ^1.2.2
+  video_player: ^2.2.6
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
@@ -66,8 +68,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - images/pushup.jpg
+  # assets:
+  #   - images/pushup.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -95,14 +97,15 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: BalooBhai2
+    - family: Baloo2
       fonts:
-        - asset: fonts/BalooBhai2-Regular.ttf
-        - asset: fonts/BalooBhai2-Medium.ttf
+        - asset: assets/fonts/Baloo2-Medium.ttf
           weight: 500
-        - asset: fonts/BalooBhai2-SemiBold.ttf
-          weight: 600
-        - asset: fonts/BalooBhai2-Bold.ttf
+    - family: BalooBhai2
+      fonts: 
+        - asset: assets/fonts/BalooBhai2-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/BalooBhai2-Regular.ttf
+          weight: 100
+        - asset: assets/fonts/BalooBhai2-SemiBold.ttf
           weight: 700
-        - asset: fonts/BalooBhai2-ExtraBold.ttf
-          weight: 800

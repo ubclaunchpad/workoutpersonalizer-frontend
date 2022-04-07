@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 
 const TextStyle navBarItemStyle = TextStyle(
-  fontSize: 15,
-  color: Colors.black,
-);
-
-const TextStyle h1 = TextStyle(
+  fontFamily: "Baloo2",
+  fontSize: 18,
+  color: Color(0xFF31525B),
   fontWeight: FontWeight.w500,
-  fontSize: 18
-);
-
-const TextStyle h2 = TextStyle(
-  fontWeight: FontWeight.w400,
-  fontSize: 14,
-  color: Color(0xFF525252)
 );
 
 const TextStyle primaryHeadingStyle = TextStyle(
