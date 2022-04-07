@@ -4,7 +4,6 @@ import 'package:expandable/expandable.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:workoutpersonalizer_frontend/models/exercise.dart';
-// import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/models/Exercise2.dart';
 
 import 'video_player.dart';
 
