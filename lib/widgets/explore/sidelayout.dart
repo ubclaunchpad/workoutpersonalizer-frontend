@@ -33,7 +33,7 @@ class SideLayoutState extends State<SideLayout> {
     'Advanced': false,
   };
 
-  Map<String, bool> equiptmentValues = {
+  Map<String, bool> equipmentValues = {
     'Weight': false,
     'Resistance bands': false,
   };
@@ -156,7 +156,7 @@ class SideLayoutState extends State<SideLayout> {
                         size: 30, color: Colors.black),
                   ),
                   Text(
-                    " Equiptment",
+                    " Equipment",
                     style: filterHeaderStyle,
                   ),
                 ],
@@ -164,17 +164,17 @@ class SideLayoutState extends State<SideLayout> {
               Expanded(
                 child: ListView(
                   controller: ScrollController(),
-                  children: equiptmentValues.keys.map((String key) {
+                  children: equipmentValues.keys.map((String key) {
                     return CheckboxListTile(
                       contentPadding: const EdgeInsets.all(0),
                       dense: true,
                       controlAffinity: ListTileControlAffinity.leading,
                       title: Text(key, style: filterItemStyle),
-                      value: equiptmentValues[key],
+                      value: equipmentValues[key],
                       onChanged: (bool? value) {
                         if (value != null) {
                           setState(() {
-                            equiptmentValues[key] = value;
+                            equipmentValues[key] = value;
                           });
                         }
                       },
