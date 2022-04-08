@@ -7,6 +7,17 @@ const TextStyle navBarItemStyle = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+const TextStyle h1 = TextStyle(
+  fontWeight: FontWeight.w500,
+  fontSize: 18
+);
+
+const TextStyle h2 = TextStyle(
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+  color: Color(0xFF525252)
+);
+
 const TextStyle primaryHeadingStyle = TextStyle(
   fontFamily: "BalooBhai2",
   fontSize: 24,

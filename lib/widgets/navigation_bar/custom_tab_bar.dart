@@ -20,17 +20,8 @@ class CustomTabBar extends StatelessWidget {
       color: orange,
       child: Row(
         children: <Widget>[
-          Container(
-              padding: EdgeInsets.fromLTRB(screenWidth * 0.03, 5, 110, 5),
-              child: const SizedBox(
-                width: 100,
-                height: 30,
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: grey,
-                  ),
-                ),
-              )),
+          const Image(image: NetworkImage('https://teamworkoutplatform.s3.us-west-2.amazonaws.com/fithubhoriz+(1).png'),
+          width: 200, height: 100,),
           SizedBox(
             width: screenWidth * tabBarScaling,
             child: Theme(
