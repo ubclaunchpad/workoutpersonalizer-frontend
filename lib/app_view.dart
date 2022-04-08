@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/models/content_view.dart';
 import 'package:workoutpersonalizer_frontend/ui/explore_page.dart';
+import 'package:workoutpersonalizer_frontend/ui/my_account_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/my_workouts_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/workout_player.dart';
 import 'package:workoutpersonalizer_frontend/ui/workout_creator_page.dart';
@@ -31,6 +32,12 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
       tab: CustomTab(title: "Workout Player"),
       content: WorkoutPlayer(),
     ),
+    // My Account page should always be the last page in the list
+    // TODO: Hide My Account tab (https://ubclaunchpad.atlassian.net/browse/WP-92)
+    ContentView(
+      tab: CustomTab(title: " "),
+      content: const MyAccountPage(),
+    )
   ];
   @override
   void initState() {

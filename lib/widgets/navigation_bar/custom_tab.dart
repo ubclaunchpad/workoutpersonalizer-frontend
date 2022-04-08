@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/constants/styles.dart';
 
 class CustomTab extends StatelessWidget {
-  CustomTab({required this.title});
-
   final String title;
+  const CustomTab({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Tab(
       child: FittedBox(
         fit: BoxFit.fill,
