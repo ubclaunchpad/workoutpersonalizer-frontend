@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/models/content_view.dart';
 import 'package:workoutpersonalizer_frontend/ui/explore_page.dart';
 import 'package:workoutpersonalizer_frontend/ui/my_workouts_page.dart';
+import 'package:workoutpersonalizer_frontend/ui/workoutPlayer/workout_player.dart';
 import 'package:workoutpersonalizer_frontend/ui/workout_creator_page.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab.dart';
 import 'package:workoutpersonalizer_frontend/widgets/navigation_bar/custom_tab_bar.dart';
@@ -25,7 +26,11 @@ class _AppViewState extends State<AppView> with SingleTickerProviderStateMixin {
     ContentView(
       tab: CustomTab(title: "Workout Creator"),
       content: WorkoutCreatorPage(),
-    )
+    ),
+    ContentView(
+      tab: CustomTab(title: "Workout Player"),
+      content: WorkoutPlayer(),
+    ),
   ];
   @override
   void initState() {
