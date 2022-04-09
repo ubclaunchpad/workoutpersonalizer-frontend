@@ -24,6 +24,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
     );
   }
 
+  // print(exercises[index].thumbnailSrc);
   return Card(
     semanticContainer: true,
     clipBehavior: Clip.antiAliasWithSaveLayer,

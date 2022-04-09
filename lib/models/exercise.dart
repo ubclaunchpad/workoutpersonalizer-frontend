@@ -19,13 +19,13 @@ Future<List<Exercise>> fetchExercises(String endpoint) async {
 
 Future<List<Exercise>> fetchAllExercises() async {
   // TODO: unhardcode endpoint
-  return fetchExercises('http://localhost:8000/exercises');
+  return fetchExercises('https://ec2-54-193-129-230.us-west-1.compute.amazonaws.com:8000/exercises');
 }
 
 Future<List<Exercise>> fetchSavedExercises() async {
   // TODO: unhardcode endpoint, esp userId
   return fetchExercises(
-      'http://localhost:8000/users/b70820ae-d0a3-411b-9217-0bf2370e7139/savedExercises');
+      'https://ec2-54-193-129-230.us-west-1.compute.amazonaws.com:8000/users/b70820ae-d0a3-411b-9217-0bf2370e7139/savedExercises');
 }
 
 class Exercise {
@@ -62,10 +62,12 @@ class Exercise {
       DateTime.parse(json['createdAt']),
       DateTime.parse(json['updatedAt']),
       [
+        /*
         ...json['DifficultyLevels'],
         ...json['ExerciseTypes'],
         ...json['Equipment'],
         ...json['MuscleGroups']
+        */
       ],
     );
   }
