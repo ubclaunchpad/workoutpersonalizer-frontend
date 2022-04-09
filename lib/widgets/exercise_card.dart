@@ -37,7 +37,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
             exercises[index].name,
             style: exerciseCardTitleStyle,
           ),
-          tileColor: const Color(0xFFFFA101),
+          tileColor: orange,
           dense: true,
         ),
         Stack(alignment: Alignment.bottomLeft, children: <Widget>[
@@ -58,7 +58,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
                           padding: const EdgeInsets.only(
                               top: 8.0, right: 12.0, left: 8.0),
                           child: PopupMenuButton<String>(
-                            color: const Color(0xFF76B5BF),
+                            color: lightTurqoise,
                             shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(8))),
@@ -121,9 +121,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
                     padding: const EdgeInsets.only(
                         top: 0.0, right: 8.0, left: 8.0, bottom: 8.0),
                     child: IconButton(
-                        onPressed: () {
-                          print("pressed heart\n");
-                        },
+                        onPressed: () {},
                         iconSize: 35,
                         highlightColor: Colors.transparent,
                         hoverColor: Colors.transparent,

@@ -43,13 +43,12 @@ class SideLayoutState extends State<SideLayout> {
     return Expanded(
       child: Container(
           padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-          color: Color(0x00000000),
           child: Column(
             children: [
               Row(
                 children: const [
                   CircleAvatar(
-                    backgroundColor: Color(0xFFFFCD78),
+                    backgroundColor: lightOrange,
                     child: Icon(Icons.airline_seat_legroom_extra,
                         size: 30, color: Colors.black),
                   ),
