@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:workoutpersonalizer_frontend/models/exercise.dart';
 import 'package:workoutpersonalizer_frontend/widgets/exercise_card.dart';
@@ -47,7 +48,7 @@ class _GalleryState extends State<Gallery> {
         controller: ScrollController(),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 300,
-            childAspectRatio: 8 / 7,
+            childAspectRatio: 9 / 7,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20),
         itemCount: exercisesToDisplay.length,
@@ -63,10 +64,18 @@ class _GalleryState extends State<Gallery> {
   }
 
   Widget _buildSearchBar(BuildContext context, exerciseList) {
+    //TODO: search bar fixes (https://ubclaunchpad.atlassian.net/browse/WP-121)
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
-        decoration: const InputDecoration(hintText: 'Search Exercise'),
+        decoration: const InputDecoration(
+            suffixIcon: Icon(
+              Icons.search,
+              color: Colors.black,
+            ),
+            hintText: 'Search Exercise',
+            border: OutlineInputBorder(borderRadius: BorderRadius.zero),
+            contentPadding: EdgeInsets.only(left: 10, right: 10)),
         onChanged: (text) {
           text = text.toLowerCase();
           setState(() {
@@ -80,7 +89,10 @@ class _GalleryState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      _buildSearchBar(context, widget.exerciseList),
+      Container(
+          alignment: Alignment.center,
+          width: 300,
+          child: _buildSearchBar(context, widget.exerciseList)),
       Expanded(
           child:
               _buildGrid(context, widget.exerciseList, widget.playlistGallery))
