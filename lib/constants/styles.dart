@@ -7,6 +7,11 @@ const TextStyle navBarItemStyle = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+const TextStyle h1 = TextStyle(fontWeight: FontWeight.w500, fontSize: 18);
+
+const TextStyle h2 = TextStyle(
+    fontWeight: FontWeight.w400, fontSize: 14, color: Color(0xFF525252));
+
 const TextStyle primaryHeadingStyle = TextStyle(
   fontFamily: "BalooBhai2",
   fontSize: 24,
@@ -125,4 +130,7 @@ const TextStyle addExercisePopupMenuItemTextStyle = TextStyle(
   color: Colors.white,
 );
 const Color orange = Color(0xFFFFA101);
+const Color lightOrange = Color(0xFFFFCD78);
 const Color turquoise = Color(0xFF3CBFD4);
+const Color grey = Color(0xFF827373);
+const Color lightTurqoise = Color(0xFF76B5BF);

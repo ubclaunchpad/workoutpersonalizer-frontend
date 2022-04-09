@@ -18,11 +18,11 @@ class ExerciseCard extends StatelessWidget {
             ListTile(
                 title: Text(
                   exercise.name,
-                  style: primaryHeadingStyle,
+                  style: h1,
                 ),
                 subtitle: Text(
                   exercise.length.toString() + " sec",
-                  style: secondaryHeadingStyle,
+                  style: h2,
                 ),
                 trailing: IconButton(
                   icon: const Icon(Icons.delete),
@@ -37,7 +37,7 @@ class ExerciseCard extends StatelessWidget {
               subtitle: Text(
                 "Last edited: "
                 + DateFormat.yMd().format(exercise.updatedAt),
-                style: secondaryHeadingStyle,
+                style: h2,
               ),
               trailing: IconButton(
                 icon: const Icon(Icons.edit),

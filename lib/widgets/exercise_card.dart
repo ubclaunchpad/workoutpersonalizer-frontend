@@ -16,6 +16,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
   if (allExercisesButtonPressed) {
     heart = const Icon(
       Icons.favorite_outline,
+      color: Colors.white,
     );
   } else {
     heart = const Icon(
@@ -37,94 +38,102 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
             exercises[index].name,
             style: exerciseCardTitleStyle,
           ),
-          tileColor: const Color(0xFFFFCD78),
+          tileColor: orange,
           dense: true,
         ),
-        Stack(
-          alignment: Alignment.bottomLeft,
-          children: <Widget>[
-            AspectRatio(
-              aspectRatio: 1.9,
-              child: Image.network(
-                exercises[index].thumbnailSrc,
-                fit: BoxFit.cover,
-              ),
+        Stack(alignment: Alignment.bottomLeft, children: <Widget>[
+          AspectRatio(
+            aspectRatio: 1.9,
+            child: Image.network(
+              exercises[index].thumbnailSrc,
+              fit: BoxFit.cover,
             ),
-            //TODO: switch order of heart and add buttons (https://ubclaunchpad.atlassian.net/browse/WP-88)
-            explorePage
-                ? Positioned(
-                    top: 25,
-                    right: -5,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: PopupMenuButton<String>(
-                        color: const Color(0xFF76B5BF),
-                        shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(8))),
-                        onSelected: (value) {
-                          print("add to " + value);
-                        },
-                        itemBuilder: (context) => [
-                          const PopupMenuItem(
-                            padding: EdgeInsets.only(right: 0, left: 10),
-                            child: Text("8 Minutes to Intense Abs",
-                                style: addExercisePopupMenuItemTextStyle),
-                            value: "first",
-                          ),
-                          const PopupMenuItem(
-                            padding: EdgeInsets.only(right: 0, left: 10),
-                            child: Text("4 Minute Stretch",
-                                style: addExercisePopupMenuItemTextStyle),
-                            value: "second",
-                          ),
-                          const PopupMenuDivider(),
-                          const PopupMenuItem(
-                              padding: EdgeInsets.only(right: 0, left: 10),
-                              child: Text("New Workout",
-                                  style: addExercisePopupMenuItemTextStyle),
-                              value: "new")
-                        ],
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(
-                              width: 3,
-                              color: const Color(0xFF3CBFD4),
+          ),
+          Positioned(
+              top: 0,
+              right: -5,
+              child: Column(
+                children: [
+                  explorePage
+                      ? Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8.0, right: 12.0, left: 8.0),
+                          child: PopupMenuButton<String>(
+                            color: lightTurqoise,
+                            shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8))),
+                            onSelected: (value) {
+                              print("add to " + value);
+                            },
+                            itemBuilder: (context) => [
+                              const PopupMenuItem(
+                                padding: EdgeInsets.only(right: 0, left: 10),
+                                child: Text("8 Minutes to Intense Abs",
+                                    style: addExercisePopupMenuItemTextStyle),
+                                value: "first",
+                              ),
+                              const PopupMenuItem(
+                                padding: EdgeInsets.only(right: 0, left: 10),
+                                child: Text("4 Minute Stretch",
+                                    style: addExercisePopupMenuItemTextStyle),
+                                value: "second",
+                              ),
+                              const PopupMenuDivider(),
+                              const PopupMenuItem(
+                                  padding: EdgeInsets.only(right: 0, left: 10),
+                                  child: Text("New Workout",
+                                      style: addExercisePopupMenuItemTextStyle),
+                                  value: "new")
+                            ],
+                            child: Container(
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black54,
+                                    blurRadius: 8.0,
+                                    spreadRadius: 0.1,
+                                    offset: Offset(
+                                      0.0,
+                                      3.0,
+                                    ),
+                                  )
+                                ],
+                                color: Colors.white,
+                                border: Border.all(
+                                  width: 3,
+                                  color: const Color(0xFF3CBFD4),
+                                ),
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(8)),
+                              ),
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 5.0, vertical: 0.0),
+                                child: const Text(' ADD ',
+                                    textAlign: TextAlign.center,
+                                    style: addExercisePopupMenuButtonTextStyle),
+                              ),
                             ),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(8)),
                           ),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 5.0, vertical: 0.0),
-                            child: const Text(' ADD ',
-                                textAlign: TextAlign.center,
-                                style: addExercisePopupMenuButtonTextStyle),
-                          ),
-                        ),
-                      ),
-                    ),
+                        )
+                      : const SizedBox.shrink(),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        top: 0.0, right: 8.0, left: 8.0, bottom: 8.0),
+                    child: IconButton(
+                        onPressed: () {},
+                        iconSize: 35,
+                        highlightColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        splashColor: Colors.transparent,
+                        icon: heart),
                   )
-                : const SizedBox.shrink(),
-            Positioned(
-              top: -10,
-              right: 0,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                    onPressed: () {
-                      print("pressed heart\n");
-                    },
-                    highlightColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    icon: heart),
-              ),
-            ),
-          ],
-        ),
+                ],
+              )),
+        ]),
         Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.only(top: 8, right: 8, left: 8),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
@@ -132,7 +141,7 @@ Widget createExerciseCard(List<Exercise> exercises, int index,
               style: exerciseCardTagStyle,
             ),
           ),
-        ),
+        )
       ],
     ),
   );
