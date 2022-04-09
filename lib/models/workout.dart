@@ -5,7 +5,7 @@ import 'package:workoutpersonalizer_frontend/models/exercise.dart';
 
 Future<List> fetchWorkouts() async {
   final response = await http.get(Uri.parse(
-      'http://localhost:8000/users/b70820ae-d0a3-411b-9217-0bf2370e7139/workouts/detailed'));
+      'https://ec2-54-193-129-230.us-west-1.compute.amazonaws.com:8000/users/b70820ae-d0a3-411b-9217-0bf2370e7139/workouts/detailed'));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
